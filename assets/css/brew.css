@@ -1,0 +1,386 @@
+/* JO4 Brew - Specific Styles */
+
+/* Reset to default theme variables to prevent conflicts */
+:root {
+  --brew-primary-red: #9B1C2D;
+  --brew-accent-red: #C53030;
+  --brew-bg-light: #FDF8F5;
+  --brew-bg-dark: #1F1F1F;
+  --brew-text-light: #2F2F2F;
+  --brew-text-dark: #F5F5F5;
+  --brew-accent-warm-light: #D4B8A5;
+  --brew-accent-warm-dark: #A1866F;
+}
+
+/* Brew page overrides for light theme */
+body.brew-page {
+  --bg: var(--brew-bg-light);
+  --text-primary: var(--brew-text-light);
+  --accent-primary: var(--brew-primary-red);
+  --accent-secondary: var(--brew-accent-red);
+  --accent-tertiary: var(--brew-accent-warm-light);
+}
+
+/* Brew page overrides for dark theme */
+body.brew-page[data-theme="dark"] {
+  --bg: var(--brew-bg-dark);
+  --text-primary: var(--brew-text-dark);
+  --accent-primary: var(--brew-accent-red);
+  --accent-secondary: var(--brew-primary-red);
+  --accent-tertiary: var(--brew-accent-warm-dark);
+}
+
+/* Brew-specific gradients */
+.brew-gradient {
+  background: linear-gradient(135deg, var(--brew-primary-red) 0%, var(--brew-accent-red) 100%);
+}
+
+/* Brew hero section */
+.brew-hero {
+  background-color: var(--brew-primary-red);
+  color: var(--brew-text-dark);
+}
+
+.brew-hero::before {
+  background-color: rgba(155, 28, 45, 0.7);
+}
+
+/* Coffee menu */
+.menu-card {
+  border-left: 4px solid var(--brew-primary-red);
+  padding-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateX(5px);
+}
+
+.coffee-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed rgba(var(--accent-primary-rgb), 0.2);
+}
+
+.coffee-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.coffee-name {
+  font-weight: 700;
+}
+
+.coffee-price {
+  font-weight: 600;
+  color: var(--brew-primary-red);
+}
+
+.coffee-description {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* Brew gallery */
+.brew-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  aspect-ratio: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  padding: 1rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
+
+/* Booking calendar */
+.calendar-container {
+  background-color: var(--surface);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover:not(.disabled):not(.empty) {
+  background-color: rgba(var(--accent-primary-rgb), 0.1);
+}
+
+.calendar-day.selected {
+  background-color: var(--brew-primary-red);
+  color: white;
+}
+
+.calendar-day.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* Package cards */
+.package-card {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  position: relative;
+}
+
+.package-card:hover {
+  border-color: var(--brew-primary-red);
+}
+
+.package-card.selected {
+  border-color: var(--brew-primary-red);
+  background-color: rgba(155, 28, 45, 0.05);
+}
+
+.package-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--brew-primary-red);
+}
+
+/* Booking form */
+.booking-progress {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.progress-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.progress-step::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--brew-accent-warm-light);
+  z-index: 1;
+}
+
+.progress-step:first-child::after {
+  left: 50%;
+}
+
+.progress-step:last-child::after {
+  right: 50%;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--brew-accent-warm-light);
+  color: var(--brew-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-step.active .step-number {
+  background-color: var(--brew-primary-red);
+  color: white;
+}
+
+.progress-step.completed .step-number {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Testimonials */
+.testimonial {
+  text-align: left;
+  height: 100%;
+}
+
+.testimonial-stars {
+  color: #FFD700;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.testimonial-author {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+/* WhatsApp quick book button */
+.whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+/* Success message */
+.success-message {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-message i {
+  font-size: 4rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+/* Form step navigation */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.form-actions button:only-child {
+  margin-left: auto;
+}
+
+/* Custom styling for brew-specific sections */
+.brew-page .section {
+  position: relative;
+}
+
+.brew-page .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--brew-primary-red), var(--brew-accent-warm-light));
+  opacity: 0.3;
+}
+
+.brew-page .section-title::after {
+  background-color: var(--brew-primary-red);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .brew-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .calendar-day {
+    font-size: 0.8rem;
+  }
+  
+  .booking-progress {
+    flex-wrap: wrap;
+  }
+  
+  .progress-step {
+    flex: 1 0 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .progress-step::after {
+    display: none;
+  }
+}

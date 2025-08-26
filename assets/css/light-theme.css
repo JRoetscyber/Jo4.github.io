@@ -1,0 +1,24 @@
+/* 
+ * JO4 Website - Light Theme CSS
+ * Last updated: 2025-08-26 20:20:13 UTC
+ * Author: JRoetscyber
+ */
+
+/* Light theme variables */
+:root {
+  /* Light Mode Colors */
+  --bg: #f8f9fa;
+  --surface: rgba(255, 255, 255, 0.6);
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --accent-primary: #007BFF;
+  --accent-secondary: #6f42c1;
+  --accent-tertiary: #17a2b8;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #007BFF 0%, #6f42c1 100%);
+  
+  /* Shadow effects */
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+}

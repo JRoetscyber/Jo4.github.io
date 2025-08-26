@@ -1,0 +1,831 @@
+/* JO4 Real Estate - Specific Styles
+ * Last updated: 2025-08-26 20:12:27 UTC
+ * Author: JRoetscyber
+ */
+
+/* Real Estate theme colors */
+:root {
+  --realestate-primary: #2c3e50;
+  --realestate-secondary: #34495e;
+  --realestate-accent: #e74c3c;
+  --realestate-accent-secondary: #c0392b;
+  --realestate-light: #ecf0f1;
+  --realestate-dark: #1a252f;
+  --realestate-success: #27ae60;
+  --realestate-info: #3498db;
+  --realestate-warning: #f39c12;
+  --realestate-sold: #8e44ad;
+}
+
+/* Real Estate page overrides for light theme */
+body.realestate-page {
+  --bg: var(--realestate-light);
+  --text-primary: #2c3e50;
+  --accent-primary: var(--realestate-accent);
+  --accent-secondary: var(--realestate-accent-secondary);
+}
+
+/* Real Estate page overrides for dark theme */
+body.realestate-page[data-theme="dark"] {
+  --bg: var(--realestate-dark);
+  --text-primary: #ecf0f1;
+  --accent-primary: var(--realestate-accent);
+  --accent-secondary: var(--realestate-accent-secondary);
+}
+
+/* Hero Section */
+.realestate-hero {
+  background-color: var(--realestate-primary);
+}
+
+.realestate-hero::before {
+  background-color: rgba(44, 62, 80, 0.7);
+  background-image: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(231, 76, 60, 0.6) 100%);
+}
+
+.realestate-hero h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Agent Profile */
+.agent-profile {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.agent-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.agent-image img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 5px solid white;
+  transition: transform 0.3s ease;
+}
+
+.agent-image img:hover {
+  transform: scale(1.02);
+}
+
+.agent-info {
+  flex: 2;
+}
+
+.agent-info h2 {
+  color: var(--realestate-primary);
+  margin-bottom: 0.5rem;
+}
+
+.agent-info h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.agent-title {
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.agent-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.credential {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--surface);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.credential:hover {
+  transform: translateY(-3px);
+}
+
+.credential i {
+  color: var(--accent-primary);
+  font-size: 1.2rem;
+}
+
+.agent-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.agent-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--surface);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.agent-contact-item:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.agent-contact-item i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .agent-profile {
+    flex-direction: column;
+  }
+  
+  .agent-image {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .agent-credentials {
+    gap: 1rem;
+  }
+  
+  .credential {
+    width: 100%;
+  }
+}
+
+/* Property Listings */
+.listings-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--realestate-primary);
+}
+
+.property-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.property-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  background-color: var(--surface);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.property-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  z-index: 2;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+}
+
+.property-tag.sold {
+  background-color: var(--realestate-sold);
+}
+
+.property-tag.rent {
+  background-color: var(--realestate-info);
+}
+
+.property-images {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.property-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .property-img {
+  transform: scale(1.05);
+}
+
+.property-image-count {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.property-content {
+  padding: 1.5rem;
+}
+
+.property-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  color: var(--realestate-primary);
+}
+
+.property-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.property-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.property-address i {
+  color: var(--realestate-secondary);
+}
+
+.property-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(var(--accent-primary-rgb), 0.1);
+}
+
+.property-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.property-feature i {
+  color: var(--realestate-secondary);
+}
+
+.property-description {
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Property pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.pagination-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface);
+  border-radius: 50%;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-item:hover, .pagination-item.active {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.pagination-item.next {
+  width: auto;
+  padding: 0 1rem;
+  border-radius: 20px;
+}
+
+/* Selling Points */
+.selling-points {
+  margin-top: 2rem;
+}
+
+.selling-point {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.selling-point:hover {
+  transform: translateX(5px);
+}
+
+.selling-point-icon {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--accent-primary-rgb), 0.1);
+  border-radius: 50%;
+}
+
+.selling-point-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--realestate-primary);
+}
+
+/* Seller Form */
+.seller-form-container {
+  height: 100%;
+}
+
+.seller-form-container .card {
+  height: 100%;
+}
+
+/* Sales Grid */
+.sales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.sale-card {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sale-card:hover {
+  transform: translateY(-10px);
+}
+
+.sale-image {
+  position: relative;
+  height: 200px;
+}
+
+.sale-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.sale-card:hover .sale-img {
+  filter: brightness(1);
+}
+
+.sale-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--realestate-success);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+}
+
+.sale-content {
+  padding: 1.5rem;
+  background-color: var(--surface);
+}
+
+.sale-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--realestate-primary);
+}
+
+.sale-content p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Contact Info */
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(var(--accent-primary-rgb), 0.1);
+  border-radius: 50%;
+}
+
+.contact-text h3 {
+  margin-bottom: 0.5rem;
+  color: var(--realestate-primary);
+}
+
+.social-media h3 {
+  margin-bottom: 1rem;
+  color: var(--realestate-primary);
+}
+
+.social-icons a {
+  width: 45px;
+  height: 45px;
+  background-color: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--realestate-primary);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.social-icons a:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: translateY(-5px);
+}
+
+/* Map Section */
+.map-section {
+  height: 450px;
+  margin-top: 4rem;
+}
+
+.map-container {
+  height: 100%;
+}
+
+/* Property Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--accent-primary);
+}
+
+/* Property labels */
+.property-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.label-new {
+  background-color: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+}
+
+.label-hot {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.label-reduced {
+  background-color: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
+}
+
+.label-exclusive {
+  background-color: rgba(241, 196, 15, 0.1);
+  color: #f1c40f;
+}
+
+/* Property gallery slider */
+.property-gallery {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.gallery-main {
+  height: 400px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.gallery-thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-thumbnail.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--realestate-primary);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.gallery-nav:hover {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-prev {
+  left: 1rem;
+}
+
+.gallery-next {
+  right: 1rem;
+}
+
+/* Property details section */
+.property-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Property Amenities */
+.amenities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.amenity-item i {
+  color: var(--accent-primary);
+}
+
+/* Property page buttons */
+.property-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.property-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.property-btn:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.property-btn i {
+  font-size: 1.2rem;
+}
+
+/* Media queries */
+@media (max-width: 992px) {
+  .property-listings-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .property-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .listings-filter {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .sales-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    margin: 0 auto 1rem;
+  }
+  
+  .selling-point {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .selling-point-icon {
+    margin: 0 auto 1rem;
+  }
+  
+  .gallery-main {
+    height: 250px;
+  }
+  
+  .property-buttons {
+    flex-direction: column;
+  }
+  
+  .property-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

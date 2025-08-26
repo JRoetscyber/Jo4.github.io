@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JO4 Real Estate — Property Sales & Rentals in South Africa</title>
+    <meta name="description" content="Certified Property Practitioner offering property sales, rentals, and valuations in Cape Town and surrounding areas.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="JO4 Real Estate — Cape Town Property Specialist">
+    <meta property="og:description" content="Professional property services for buying, selling, and renting in Cape Town and surrounding areas.">
+    <meta property="og:image" content="https://jo4.co.za/assets/images/realestate/realestate-social.jpg">
+    <meta property="og:url" content="https://jo4.co.za/realestate">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/light-theme.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/realestate.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">JO4</a>
+                
+                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
+                    <span class="sr-only">Menu</span>
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="secure.html">JO4 SECURE</a></li>
+                    <li><a href="brew.html">JO4 Brew</a></li>
+                    <li><a href="realestate.html" class="active">Real Estate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero realestate-hero" style="background-image: url('assets/images/realestate/hero-bg.jpg');">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find Your Perfect Property</h1>
+                    <p>Professional real estate services in Cape Town and surrounding areas.</p>
+                    <div class="hero-cta">
+                        <a href="#property-listings" class="btn">View Listings</a>
+                        <a href="#contact" class="btn btn-outline">Contact Agent</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Property Search Section -->
+        <section class="section property-search-section">
+            <div class="container">
+                <div class="property-search-container">
+                    <h2 class="text-center mb-4">Find Your Dream Home</h2>
+                    
+                    <form id="property-filter-form" class="property-search-form" data-auto-filter="true">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label for="property-type">Property Type</label>
+                                <select id="property-type" name="property-type" class="form-control">
+                                    <option value="all">All Properties</option>
+                                    <option value="house">House</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="townhouse">Townhouse</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="land">Vacant Land</option>
+                                </select>
+                            </div>
+                            
+                            <div class="search-field">
+                                <label for="location">Location</label>
+                                <select id="location" name="location" class="form-control">
+                                    <option value="all">All Areas</option>
+                                    <option value="cape-town">Cape Town CBD</option>
+                                    <option value="sea-point">Sea Point</option>
+                                    <option value="camps-bay">Camps Bay</option>
+                                    <option value="constantia">Constantia</option>
+                                    <option value="stellenbosch">Stellenbosch</option>
+                                </select>
+                            </div>
+                            
+                            <div class="search-field">
+                                <label for="property-status">Status</label>
+                                <select id="property-status" name="property-status" class="form-control">
+                                    <option value="all">All</option>
+                                    <option value="for-sale">For Sale</option>
+                                    <option value="for-rent">For Rent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label for="price-range">Price Range</label>
+                                <select id="price-range" name="price-range" class="form-control">
+                                    <option value="all">Any Price</option>
+                                    <option value="0-1000000">Under R1,000,000</option>
+                                    <option value="1000000-2500000">R1,000,000 - R2,500,000</option>
+                                    <option value="2500000-5000000">R2,500,000 - R5,000,000</option>
+                                    <option value="5000000-10000000">R5,000,000 - R10,000,000</option>
+                                    <option value="10000000-plus">Over R10,000,000</option>
+                                </select>
+                            </div>
+                            
+                            <div class="search-field">
+                                <label for="bedrooms">Bedrooms</label>
+                                <select id="bedrooms" name="bedrooms" class="form-control">
+                                    <option value="any">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            
+                            <div class="search-field">
+                                <label for="bathrooms">Bathrooms</label>
+                                <select id="bathrooms" name="bathrooms" class="form-control">
+                                    <option value="any">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="search-row">
+                            <div class="search-field full-width">
+                                <label for="property-search">Keyword Search</label>
+                                <input type="text" id="property-search" name="property-search" class="form-control" placeholder="Search by property name, address or features">
+                            </div>
+                        </div>
+                        
+                        <div class="search-buttons">
+                            <button type="button" id="apply-filters" class="btn">Search Properties</button>
+                            <button type="button" id="reset-filters" class="btn btn-outline">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Properties Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Featured Properties</h2>
+                
+                <div class="featured-properties">
+                    <!-- Featured Property 1 -->
+                    <div class="property-card featured reveal">
+                        <div class="property-tag">Featured</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property1.jpg" alt="Luxury Apartment">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop001">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Luxury Apartment with Ocean Views</h3>
+                            <div class="property-price">R5,950,000</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 140 m²</span>
+                            </div>
+                            <p class="property-description">Modern luxury apartment with breathtaking ocean views, private balcony, and 24-hour security. Walking distance to restaurants and shops.</p>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop001" class="btn">View Details</a>
+                                <button class="btn-outline request-viewing-btn" data-property-id="prop001" data-property-title="Luxury Apartment with Ocean Views">Request Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Property 2 -->
+                    <div class="property-card featured reveal">
+                        <div class="property-tag">Featured</div>
+                        <div class="property-status status-rent">For Rent</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property2.jpg" alt="Modern Villa">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop002">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Modern Villa with Mountain Views</h3>
+                            <div class="property-price">R45,000 /month</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Constantia, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3.5 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 320 m²</span>
+                            </div>
+                            <p class="property-description">Luxurious villa with stunning mountain views, private pool, and landscaped garden. High-end finishes throughout and double garage.</p>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop002" class="btn">View Details</a>
+                                <button class="btn-outline request-viewing-btn" data-property-id="prop002" data-property-title="Modern Villa with Mountain Views">Request Viewing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Property Listings Section -->
+        <section id="property-listings" class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-3">Available Properties</h2>
+                <p class="text-center mb-5">Explore our selection of properties for sale and rent</p>
+                
+                <div class="search-results-info mb-4" style="display: none;">
+                    <p>Showing <span id="result-count">0</span> properties matching your criteria</p>
+                </div>
+                
+                <div class="property-listings-grid">
+                    <!-- Property 1 -->
+                    <div class="property-card reveal" data-type="apartment" data-location="sea-point" data-price="5950000" data-bedrooms="3" data-bathrooms="2" data-status="for-sale">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property1.jpg" alt="Luxury Apartment">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop001">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Luxury Apartment with Ocean Views</h3>
+                            <div class="property-price">R5,950,000</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 140 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop001" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 2 -->
+                    <div class="property-card reveal" data-type="villa" data-location="constantia" data-price="0" data-bedrooms="4" data-bathrooms="3.5" data-status="for-rent">
+                        <div class="property-status status-rent">For Rent</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property2.jpg" alt="Modern Villa">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop002">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Modern Villa with Mountain Views</h3>
+                            <div class="property-price">R45,000 /month</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Constantia, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 4 Beds</span>
+                                <span><i class="fas fa-bath"></i> 3.5 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 320 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop002" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 3 -->
+                    <div class="property-card reveal" data-type="house" data-location="camps-bay" data-price="12500000" data-bedrooms="5" data-bathrooms="4" data-status="for-sale">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property3.jpg" alt="Beachfront House">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop003">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Beachfront House with Panoramic Views</h3>
+                            <div class="property-price">R12,500,000</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Camps Bay, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 5 Beds</span>
+                                <span><i class="fas fa-bath"></i> 4 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 450 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop003" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 4 -->
+                    <div class="property-card reveal" data-type="apartment" data-location="cape-town" data-price="2950000" data-bedrooms="2" data-bathrooms="1" data-status="for-sale">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property4.jpg" alt="City Apartment">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop004">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">City Apartment with Mountain Views</h3>
+                            <div class="property-price">R2,950,000</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Cape Town CBD
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 2 Beds</span>
+                                <span><i class="fas fa-bath"></i> 1 Bath</span>
+                                <span><i class="fas fa-vector-square"></i> 85 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop004" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 5 -->
+                    <div class="property-card reveal" data-type="townhouse" data-location="stellenbosch" data-price="3750000" data-bedrooms="3" data-bathrooms="2.5" data-status="for-sale">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property5.jpg" alt="Wine Estate Townhouse">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop005">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Wine Estate Townhouse with Garden</h3>
+                            <div class="property-price">R3,750,000</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Stellenbosch
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 3 Beds</span>
+                                <span><i class="fas fa-bath"></i> 2.5 Baths</span>
+                                <span><i class="fas fa-vector-square"></i> 180 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop005" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Property 6 -->
+                    <div class="property-card reveal" data-type="apartment" data-location="sea-point" data-price="0" data-bedrooms="2" data-bathrooms="1" data-status="for-rent">
+                        <div class="property-status status-rent">For Rent</div>
+                        <div class="property-images">
+                            <img src="assets/images/realestate/property6.jpg" alt="Sea Point Apartment">
+                            <a href="#" class="view-gallery-btn" data-property-id="prop006">
+                                <i class="fas fa-images"></i> View Photos
+                            </a>
+                        </div>
+                        <div class="property-details">
+                            <h3 class="property-title">Modern Apartment Near Promenade</h3>
+                            <div class="property-price">R18,500 /month</div>
+                            <div class="property-address">
+                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
+                            </div>
+                            <div class="property-features">
+                                <span><i class="fas fa-bed"></i> 2 Beds</span>
+                                <span><i class="fas fa-bath"></i> 1 Bath</span>
+                                <span><i class="fas fa-vector-square"></i> 95 m²</span>
+                            </div>
+                            <div class="property-actions">
+                                <a href="property-details.html?id=prop006" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="no-results-message" style="display: none;">
+                    <p>No properties match your search criteria. Please try adjusting your filters.</p>
+                </div>
+                
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-outline">View All Properties</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">My Real Estate Services</h2>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Property Sales</h3>
+                        <p>Professional marketing and sales of residential properties with personalized service and expert negotiation to get you the best price.</p>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Property Rentals</h3>
+                        <p>Finding qualified tenants for your investment property or helping you find the perfect rental home to suit your needs and budget.</p>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Property Search</h3>
+                        <p>Personalized property search service to help you find exactly what you're looking for, saving you time and effort.</p>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Property Valuation</h3>
+                        <p>Accurate property valuations based on market analysis, property condition, and local property trends.</p>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Negotiation</h3>
+                        <p>Expert negotiation skills to ensure you get the best possible deal whether buying or selling property.</p>
+                    </div>
+                    
+                    <!-- Service 6 -->
+                    <div class="service-box reveal">
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3>Legal Assistance</h3>
+                        <p>Guidance through the legal aspects of property transactions with connections to trusted conveyancing attorneys.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Client Testimonials</h2>
+                
+                <div class="testimonials-slider">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide reveal">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Jonathan helped us find our dream home in Cape Town. His knowledge of the area and understanding of our specific needs made the process smooth and enjoyable. We couldn't be happier with our new home!"</p>
+                            <div class="testimonial-author">
+                                <img src="assets/images/realestate/client1.jpg" alt="Client Testimonial" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <strong>David & Sarah Mitchell</strong>
+                                    <div>Bought in Camps Bay</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide reveal">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Selling our family home was an emotional process, but Jonathan handled everything with professionalism and care. He got us a great price and made sure all the details were taken care of. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <img src="assets/images/realestate/client2.jpg" alt="Client Testimonial" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <strong>Robert Johnson</strong>
+                                    <div>Sold in Constantia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-slide reveal">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"As an overseas investor, I needed someone I could trust to help me find the right rental property. Jonathan's market knowledge and attention to detail were invaluable. The property he found has been an excellent investment."</p>
+                            <div class="testimonial-author">
+                                <img src="assets/images/realestate/client3.jpg" alt="Client Testimonial" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <strong>Emma Wilson</strong>
+                                    <div>International Investor</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Navigation -->
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-next" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Contact Your Property Specialist</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info reveal">
+                        <div class="agent-card">
+                            <img src="assets/images/jonathan-profile.jpg" alt="Jonathan Roets" class="agent-image">
+                            <div class="agent-details">
+                                <h3>Jonathan Roets</h3>
+                                <p>Certified Property Practitioner</p>
+                                <div class="agent-contact">
+                                    <p><i class="fas fa-phone"></i> <a href="tel:+27123456783">+27 12 345 6783</a></p>
+                                    <p><i class="fas fa-envelope"></i> <a href="mailto:property@jo4.co.za">property@jo4.co.za</a></p>
+                                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
+                                </div>
+                                <div class="agent-socials">
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="agent-certifications">
+                            <h4>Certifications & Partners</h4>
+                            <div class="certification-logos">
+                                <img src="assets/images/realestate/cert1.png" alt="PPRA Certified" class="cert-logo">
+                                <img src="assets/images/realestate/cert2.png" alt="Larney Properties" class="cert-logo">
+                                <img src="assets/images/realestate/cert3.png" alt="Real Estate Business Owners of SA" class="cert-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container reveal">
+                        <form id="property-contact-form" class="contact-form card">
+                            <h3>Send Me a Message</h3>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inquiry-type">Inquiry Type</label>
+                                <select id="inquiry-type" name="inquiryType" class="form-control" required>
+                                    <option value="">Select inquiry type</option>
+                                    <option value="buying">I'm interested in buying</option>
+                                    <option value="selling">I want to sell my property</option>
+                                    <option value="renting">I'm looking for a rental</option>
+                                    <option value="valuation">I need a property valuation</option>
+                                    <option value="other">Other inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                            </div>
+                            
+                            <!-- Anti-spam honeypot field (hidden from users) -->
+                            <div class="form-group" style="display:none">
+                                <label for="honeypot">Leave this empty</label>
+                                <input type="text" id="honeypot" name="honeypot" autocomplete="off">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Viewing Request Modal -->
+        <div id="viewing-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Request a Viewing</h2>
+                <p>Complete the form below to request a viewing of <span class="modal-property-title">this property</span>.</p>
+                
+                <form id="viewing-request-form">
+                    <input type="hidden" id="property-id" name="propertyId">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="viewing-name">Full Name</label>
+                                <input type="text" id="viewing-name" name="name" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="viewing-phone">Phone Number</label>
+                                <input type="tel" id="viewing-phone" name="phone" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="viewing-email">Email Address</label>
+                        <input type="email" id="viewing-email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="viewing-date">Preferred Date</label>
+                                <input type="date" id="viewing-date" name="date" class="form-control" required min="2025-08-27">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="viewing-time">Preferred Time</label>
+                                <select id="viewing-time" name="time" class="form-control" required>
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (9am - 12pm)</option>
+                                    <option value="afternoon">Afternoon (12pm - 4pm)</option>
+                                    <option value="evening">Evening (4pm - 7pm)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="viewing-message">Additional Information</label>
+                        <textarea id="viewing-message" name="message" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <!-- Anti-spam honeypot field (hidden from users) -->
+                    <div class="form-group" style="display:none">
+                        <label for="viewing-honeypot">Leave this empty</label>
+                        <input type="text" id="viewing-honeypot" name="honeypot" autocomplete="off">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>JO4 Real Estate</h3>
+                    <p>Professional property services for buying, selling, and renting in Cape Town and surrounding areas.</p>
+                    <p class="mt-3">
+                        <strong>Last Updated:</strong> <span class="last-updated">2025-08-26 21:52:27</span><br>
+                        <strong>© JO4 Real Estate</strong> - All rights reserved
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#property-listings">Properties</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:property@jo4.co.za">property@jo4.co.za</a></p>
+                    <p>Phone: <a href="tel:+27123456783">+27 12 345 6783</a></p>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
+                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Quick Contact Button -->
+    <a href="https://wa.me/27123456783?text=Hi%20Jonathan,%20I'm%20interested%20in%20a%20property%20on%20your%20website." class="whatsapp-button" aria-label="Property inquiry via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Back to top button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/theme-switcher.js"></script>
+    <script src="assets/js/listings.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Initialize EmailJS with your user ID
+            emailjs.init("user_xxxxxxxxxxxx");
+        })();
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>

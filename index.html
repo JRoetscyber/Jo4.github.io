@@ -14,11 +14,14 @@
     <meta name="twitter:card" content="summary_large_image">
     
     <!-- Favicon -->
-    <link rel="icon" href="/assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/light-theme.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +39,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="/" class="logo">JO4</a>
+                <a href="index.html" class="logo">JO4</a>
                 
                 <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
                     <span class="sr-only">Menu</span>
@@ -44,12 +47,12 @@
                 </button>
                 
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/secure">JO4 SECURE</a></li>
-                    <li><a href="/brew">JO4 Brew</a></li>
-                    <li><a href="/realestate">Real Estate</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="secure.html">JO4 SECURE</a></li>
+                    <li><a href="brew.html">JO4 Brew</a></li>
+                    <li><a href="realestate.html">Real Estate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
                 </ul>
             </nav>
@@ -59,15 +62,15 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero" style="background-image: url('/assets/images/hero/hero-bg.jpg');">
+        <section class="hero" style="background-image: url('assets/images/hero/hero-bg.jpg');">
             <div class="container">
                 <div class="hero-content">
                     <h1>JO4 — Tech, Coffee & Property.</h1>
                     <p>Cybersecurity consulting, event coffee services, and professional real-estate services.</p>
                     <div class="hero-cta">
-                        <a href="/secure" class="btn">Explore JO4 SECURE</a>
-                        <a href="/brew" class="btn btn-outline">Book JO4 Brew</a>
-                        <a href="/realestate" class="btn btn-outline">View Properties</a>
+                        <a href="secure.html" class="btn">Explore JO4 SECURE</a>
+                        <a href="brew.html" class="btn btn-outline">Book JO4 Brew</a>
+                        <a href="realestate.html" class="btn btn-outline">View Properties</a>
                     </div>
                 </div>
             </div>
@@ -81,26 +84,26 @@
                 <div class="brands-grid">
                     <!-- JO4 SECURE Card -->
                     <div class="card reveal">
-                        <img src="/assets/images/secure/secure-thumbnail.jpg" alt="JO4 SECURE" class="card-img">
+                        <img src="assets/images/secure/secure-thumbnail.jpg" alt="JO4 SECURE" class="card-img">
                         <h3>JO4 SECURE</h3>
                         <p>Practical cybersecurity, ethical hacking, and application security services to protect your digital assets.</p>
-                        <a href="/secure" class="btn">Learn More</a>
+                        <a href="secure.html" class="btn">Learn More</a>
                     </div>
                     
                     <!-- JO4 Brew Card -->
                     <div class="card reveal">
-                        <img src="/assets/images/brew/brew-thumbnail.jpg" alt="JO4 Brew" class="card-img">
+                        <img src="assets/images/brew/brew-thumbnail.jpg" alt="JO4 Brew" class="card-img">
                         <h3>JO4 Brew</h3>
                         <p>Mobile coffee trailer for night markets, weddings, and events throughout South Africa.</p>
-                        <a href="/brew" class="btn">Book Now</a>
+                        <a href="brew.html" class="btn">Book Now</a>
                     </div>
                     
                     <!-- JO4 Real Estate Card -->
                     <div class="card reveal">
-                        <img src="/assets/images/realestate/realestate-thumbnail.jpg" alt="JO4 Real Estate" class="card-img">
+                        <img src="assets/images/realestate/realestate-thumbnail.jpg" alt="JO4 Real Estate" class="card-img">
                         <h3>JO4 Real Estate</h3>
                         <p>Professional property services in partnership with Larney Properties.</p>
-                        <a href="/realestate" class="btn">View Listings</a>
+                        <a href="realestate.html" class="btn">View Listings</a>
                     </div>
                 </div>
             </div>
@@ -111,12 +114,12 @@
             <div class="container">
                 <div class="snapshot-content">
                     <div class="snapshot-image reveal">
-                        <img src="/assets/images/jonathan-profile.jpg" alt="Jonathan Roets">
+                        <img src="assets/images/jonathan-profile.jpg" alt="Jonathan Roets">
                     </div>
                     <div class="snapshot-text reveal">
                         <h2>Meet Jonathan</h2>
                         <p>I'm Jonathan (JO4) — a Python developer, certified property practitioner, and owner of a mobile coffee trailer. I build secure applications, serve events, and help clients buy and sell homes.</p>
-                        <a href="/about" class="btn">More About Me</a>
+                        <a href="about.html" class="btn">More About Me</a>
                     </div>
                 </div>
             </div>
@@ -128,16 +131,15 @@
                 <h2 class="text-center mb-4">Featured Projects & Listings</h2>
                 
                 <div class="carousel">
-                    <!-- Carousel items will be loaded dynamically -->
                     <div class="carousel-inner">
                         <!-- Security Project -->
                         <div class="carousel-item">
                             <div class="card">
                                 <div class="card-badge">JO4 SECURE</div>
-                                <img src="/assets/images/secure/project1.jpg" alt="Security Project">
+                                <img src="assets/images/secure/project1.jpg" alt="Security Project">
                                 <h3>Web Application Security Audit</h3>
                                 <p>Comprehensive security audit for an e-commerce platform.</p>
-                                <a href="/secure#project1" class="btn">View Project</a>
+                                <a href="secure.html#project1" class="btn">View Project</a>
                             </div>
                         </div>
                         
@@ -145,10 +147,10 @@
                         <div class="carousel-item">
                             <div class="card">
                                 <div class="card-badge">JO4 Brew</div>
-                                <img src="/assets/images/brew/event1.jpg" alt="Coffee Event">
+                                <img src="assets/images/brew/event1.jpg" alt="Coffee Event">
                                 <h3>Cape Town Food Market</h3>
                                 <p>Serving specialty coffee at the monthly food market.</p>
-                                <a href="/brew#events" class="btn">See Events</a>
+                                <a href="brew.html#events" class="btn">See Events</a>
                             </div>
                         </div>
                         
@@ -156,10 +158,10 @@
                         <div class="carousel-item">
                             <div class="card">
                                 <div class="card-badge">JO4 Real Estate</div>
-                                <img src="/assets/images/realestate/property1.jpg" alt="Featured Property">
+                                <img src="assets/images/realestate/property1.jpg" alt="Featured Property">
                                 <h3>Luxury Apartment in Cape Town</h3>
                                 <p>2 Bedroom apartment with stunning mountain views.</p>
-                                <a href="/realestate#property1" class="btn">View Listing</a>
+                                <a href="realestate.html#property1" class="btn">View Listing</a>
                             </div>
                         </div>
                     </div>
@@ -199,12 +201,12 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/secure">JO4 SECURE</a></li>
-                        <li><a href="/brew">JO4 Brew</a></li>
-                        <li><a href="/realestate">Real Estate</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="secure.html">JO4 SECURE</a></li>
+                        <li><a href="brew.html">JO4 Brew</a></li>
+                        <li><a href="realestate.html">Real Estate</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -217,19 +219,43 @@
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/JRoetscyber" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 JO4. All Rights Reserved.</p>
-                <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
+                <p>Last updated: <span class="last-updated">2025-08-26 21:41:24</span> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+                <p>Generated for: <span class="username">JRoetscyber</span></p>
             </div>
         </div>
     </footer>
     
+    <!-- Back to top button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
     <!-- JavaScript -->
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/theme-switcher.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Initialize EmailJS with your user ID
+            emailjs.init("user_xxxxxxxxxxxx");
+        })();
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </body>
 </html>
