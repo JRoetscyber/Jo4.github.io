@@ -1,791 +1,966 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JO4 Real Estate — Property Sales & Rentals in South Africa</title>
-    <meta name="description" content="Certified Property Practitioner offering property sales, rentals, and valuations in Cape Town and surrounding areas.">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="JO4 Real Estate — Cape Town Property Specialist">
-    <meta property="og:description" content="Professional property services for buying, selling, and renting in Cape Town and surrounding areas.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/realestate/realestate-social.jpg">
-    <meta property="og:url" content="https://jo4.co.za/realestate">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>Real Estate | Property Services & Market Analysis</title>
+    <meta name="description" content="Professional real estate services in South Africa. Expert property listings, market analysis, and personalized guidance for buyers and sellers.">
+    <meta name="keywords" content="real estate services, property listings, home buying, property selling, market analysis, South Africa real estate">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/realestate.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Real Estate specific styles */
+        :root {
+            --estate-primary: #2C3E50;
+            --estate-secondary: #34495E;
+            --estate-accent: #16A085;
+            --estate-light: #ECF0F1;
+            --estate-bg-light: #F5F5F5;
+            --estate-bg-dark: #1E272E;
+        }
+        
+        .estate-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(44,62,80,0.9) 0%, rgba(52,73,94,0.8) 100%), url('assets/images/realestate-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .estate-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--estate-primary) 0%, transparent 100%);
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .estate-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .estate-btn {
+            background: linear-gradient(135deg, var(--estate-primary) 0%, var(--estate-secondary) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+        }
+        
+        .estate-btn:hover,
+        .estate-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(44, 62, 80, 0.5);
+            color: white;
+        }
+        
+        .estate-btn-outline {
+            background: transparent;
+            border: 2px solid var(--estate-primary);
+            color: var(--estate-primary);
+        }
+        
+        .estate-btn-outline:hover,
+        .estate-btn-outline:focus {
+            background: var(--estate-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .property-card {
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .property-img {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+        
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .property-card:hover .property-img img {
+            transform: scale(1.1);
+        }
+        
+        .property-status {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--estate-accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+        
+        .property-price {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--estate-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .property-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .property-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--estate-primary);
+        }
+        
+        .property-address {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .property-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .feature i {
+            color: var(--estate-accent);
+        }
+        
+        .property-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .property-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .filter-item {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .filter-item.active {
+            background: var(--estate-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-item {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--estate-primary) 0%, var(--estate-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--estate-primary);
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-box {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--estate-accent);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 992px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="secure.html">JO4 SECURE</a></li>
-                    <li><a href="brew.html">JO4 Brew</a></li>
-                    <li><a href="realestate.html" class="active">Real Estate</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+     <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero realestate-hero" style="background-image: url('assets/images/realestate/hero-bg.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Find Your Perfect Property</h1>
-                    <p>Professional real estate services in Cape Town and surrounding areas.</p>
+    </nav>
+
+    <!-- Real Estate Hero Section -->
+    <section id="estate-hero" class="hero estate-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Welcome to</span>
+                        <span class="name">Real Estate</span>
+                        <span class="role">Finding Your Perfect Property</span>
+                    </h1>
+                    <p class="hero-description">
+                        Professional real estate services tailored to your needs. Whether you're buying, selling, or investing, our market expertise and personalized approach will help you achieve your property goals.
+                    </p>
                     <div class="hero-cta">
-                        <a href="#property-listings" class="btn">View Listings</a>
-                        <a href="#contact" class="btn btn-outline">Contact Agent</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Property Search Section -->
-        <section class="section property-search-section">
-            <div class="container">
-                <div class="property-search-container">
-                    <h2 class="text-center mb-4">Find Your Dream Home</h2>
-                    
-                    <form id="property-filter-form" class="property-search-form" data-auto-filter="true">
-                        <div class="search-row">
-                            <div class="search-field">
-                                <label for="property-type">Property Type</label>
-                                <select id="property-type" name="property-type" class="form-control">
-                                    <option value="all">All Properties</option>
-                                    <option value="house">House</option>
-                                    <option value="apartment">Apartment</option>
-                                    <option value="townhouse">Townhouse</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="land">Vacant Land</option>
-                                </select>
-                            </div>
-                            
-                            <div class="search-field">
-                                <label for="location">Location</label>
-                                <select id="location" name="location" class="form-control">
-                                    <option value="all">All Areas</option>
-                                    <option value="cape-town">Cape Town CBD</option>
-                                    <option value="sea-point">Sea Point</option>
-                                    <option value="camps-bay">Camps Bay</option>
-                                    <option value="constantia">Constantia</option>
-                                    <option value="stellenbosch">Stellenbosch</option>
-                                </select>
-                            </div>
-                            
-                            <div class="search-field">
-                                <label for="property-status">Status</label>
-                                <select id="property-status" name="property-status" class="form-control">
-                                    <option value="all">All</option>
-                                    <option value="for-sale">For Sale</option>
-                                    <option value="for-rent">For Rent</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="search-row">
-                            <div class="search-field">
-                                <label for="price-range">Price Range</label>
-                                <select id="price-range" name="price-range" class="form-control">
-                                    <option value="all">Any Price</option>
-                                    <option value="0-1000000">Under R1,000,000</option>
-                                    <option value="1000000-2500000">R1,000,000 - R2,500,000</option>
-                                    <option value="2500000-5000000">R2,500,000 - R5,000,000</option>
-                                    <option value="5000000-10000000">R5,000,000 - R10,000,000</option>
-                                    <option value="10000000-plus">Over R10,000,000</option>
-                                </select>
-                            </div>
-                            
-                            <div class="search-field">
-                                <label for="bedrooms">Bedrooms</label>
-                                <select id="bedrooms" name="bedrooms" class="form-control">
-                                    <option value="any">Any</option>
-                                    <option value="1">1+</option>
-                                    <option value="2">2+</option>
-                                    <option value="3">3+</option>
-                                    <option value="4">4+</option>
-                                    <option value="5">5+</option>
-                                </select>
-                            </div>
-                            
-                            <div class="search-field">
-                                <label for="bathrooms">Bathrooms</label>
-                                <select id="bathrooms" name="bathrooms" class="form-control">
-                                    <option value="any">Any</option>
-                                    <option value="1">1+</option>
-                                    <option value="2">2+</option>
-                                    <option value="3">3+</option>
-                                    <option value="4">4+</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="search-row">
-                            <div class="search-field full-width">
-                                <label for="property-search">Keyword Search</label>
-                                <input type="text" id="property-search" name="property-search" class="form-control" placeholder="Search by property name, address or features">
-                            </div>
-                        </div>
-                        
-                        <div class="search-buttons">
-                            <button type="button" id="apply-filters" class="btn">Search Properties</button>
-                            <button type="button" id="reset-filters" class="btn btn-outline">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Featured Properties Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Featured Properties</h2>
-                
-                <div class="featured-properties">
-                    <!-- Featured Property 1 -->
-                    <div class="property-card featured reveal">
-                        <div class="property-tag">Featured</div>
-                        <div class="property-status">For Sale</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property1.jpg" alt="Luxury Apartment">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop001">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Luxury Apartment with Ocean Views</h3>
-                            <div class="property-price">R5,950,000</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 3 Beds</span>
-                                <span><i class="fas fa-bath"></i> 2 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 140 m²</span>
-                            </div>
-                            <p class="property-description">Modern luxury apartment with breathtaking ocean views, private balcony, and 24-hour security. Walking distance to restaurants and shops.</p>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop001" class="btn">View Details</a>
-                                <button class="btn-outline request-viewing-btn" data-property-id="prop001" data-property-title="Luxury Apartment with Ocean Views">Request Viewing</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Featured Property 2 -->
-                    <div class="property-card featured reveal">
-                        <div class="property-tag">Featured</div>
-                        <div class="property-status status-rent">For Rent</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property2.jpg" alt="Modern Villa">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop002">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Modern Villa with Mountain Views</h3>
-                            <div class="property-price">R45,000 /month</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Constantia, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 4 Beds</span>
-                                <span><i class="fas fa-bath"></i> 3.5 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 320 m²</span>
-                            </div>
-                            <p class="property-description">Luxurious villa with stunning mountain views, private pool, and landscaped garden. High-end finishes throughout and double garage.</p>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop002" class="btn">View Details</a>
-                                <button class="btn-outline request-viewing-btn" data-property-id="prop002" data-property-title="Modern Villa with Mountain Views">Request Viewing</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Property Listings Section -->
-        <section id="property-listings" class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-3">Available Properties</h2>
-                <p class="text-center mb-5">Explore our selection of properties for sale and rent</p>
-                
-                <div class="search-results-info mb-4" style="display: none;">
-                    <p>Showing <span id="result-count">0</span> properties matching your criteria</p>
-                </div>
-                
-                <div class="property-listings-grid">
-                    <!-- Property 1 -->
-                    <div class="property-card reveal" data-type="apartment" data-location="sea-point" data-price="5950000" data-bedrooms="3" data-bathrooms="2" data-status="for-sale">
-                        <div class="property-status">For Sale</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property1.jpg" alt="Luxury Apartment">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop001">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Luxury Apartment with Ocean Views</h3>
-                            <div class="property-price">R5,950,000</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 3 Beds</span>
-                                <span><i class="fas fa-bath"></i> 2 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 140 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop001" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Property 2 -->
-                    <div class="property-card reveal" data-type="villa" data-location="constantia" data-price="0" data-bedrooms="4" data-bathrooms="3.5" data-status="for-rent">
-                        <div class="property-status status-rent">For Rent</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property2.jpg" alt="Modern Villa">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop002">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Modern Villa with Mountain Views</h3>
-                            <div class="property-price">R45,000 /month</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Constantia, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 4 Beds</span>
-                                <span><i class="fas fa-bath"></i> 3.5 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 320 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop002" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Property 3 -->
-                    <div class="property-card reveal" data-type="house" data-location="camps-bay" data-price="12500000" data-bedrooms="5" data-bathrooms="4" data-status="for-sale">
-                        <div class="property-status">For Sale</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property3.jpg" alt="Beachfront House">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop003">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Beachfront House with Panoramic Views</h3>
-                            <div class="property-price">R12,500,000</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Camps Bay, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 5 Beds</span>
-                                <span><i class="fas fa-bath"></i> 4 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 450 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop003" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Property 4 -->
-                    <div class="property-card reveal" data-type="apartment" data-location="cape-town" data-price="2950000" data-bedrooms="2" data-bathrooms="1" data-status="for-sale">
-                        <div class="property-status">For Sale</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property4.jpg" alt="City Apartment">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop004">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">City Apartment with Mountain Views</h3>
-                            <div class="property-price">R2,950,000</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Cape Town CBD
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 2 Beds</span>
-                                <span><i class="fas fa-bath"></i> 1 Bath</span>
-                                <span><i class="fas fa-vector-square"></i> 85 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop004" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Property 5 -->
-                    <div class="property-card reveal" data-type="townhouse" data-location="stellenbosch" data-price="3750000" data-bedrooms="3" data-bathrooms="2.5" data-status="for-sale">
-                        <div class="property-status">For Sale</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property5.jpg" alt="Wine Estate Townhouse">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop005">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Wine Estate Townhouse with Garden</h3>
-                            <div class="property-price">R3,750,000</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Stellenbosch
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 3 Beds</span>
-                                <span><i class="fas fa-bath"></i> 2.5 Baths</span>
-                                <span><i class="fas fa-vector-square"></i> 180 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop005" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Property 6 -->
-                    <div class="property-card reveal" data-type="apartment" data-location="sea-point" data-price="0" data-bedrooms="2" data-bathrooms="1" data-status="for-rent">
-                        <div class="property-status status-rent">For Rent</div>
-                        <div class="property-images">
-                            <img src="assets/images/realestate/property6.jpg" alt="Sea Point Apartment">
-                            <a href="#" class="view-gallery-btn" data-property-id="prop006">
-                                <i class="fas fa-images"></i> View Photos
-                            </a>
-                        </div>
-                        <div class="property-details">
-                            <h3 class="property-title">Modern Apartment Near Promenade</h3>
-                            <div class="property-price">R18,500 /month</div>
-                            <div class="property-address">
-                                <i class="fas fa-map-marker-alt"></i> Sea Point, Cape Town
-                            </div>
-                            <div class="property-features">
-                                <span><i class="fas fa-bed"></i> 2 Beds</span>
-                                <span><i class="fas fa-bath"></i> 1 Bath</span>
-                                <span><i class="fas fa-vector-square"></i> 95 m²</span>
-                            </div>
-                            <div class="property-actions">
-                                <a href="property-details.html?id=prop006" class="btn">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="no-results-message" style="display: none;">
-                    <p>No properties match your search criteria. Please try adjusting your filters.</p>
-                </div>
-                
-                <div class="text-center mt-5">
-                    <a href="#" class="btn btn-outline">View All Properties</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Services Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">My Real Estate Services</h2>
-                
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
+                        <a href="#properties" class="btn estate-btn" title="View Properties">
+                            <span>View Properties</span>
                             <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Property Sales</h3>
-                        <p>Professional marketing and sales of residential properties with personalized service and expert negotiation to get you the best price.</p>
+                        </a>
+                        <a href="contact.html" class="btn estate-btn-outline" title="Contact JO4 Real Estate">
+                            <span>Get in Touch</span>
+                        </a>
                     </div>
-                    
-                    <!-- Service 2 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
-                        <h3>Property Rentals</h3>
-                        <p>Finding qualified tenants for your investment property or helping you find the perfect rental home to suit your needs and budget.</p>
-                    </div>
-                    
-                    <!-- Service 3 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Property Search</h3>
-                        <p>Personalized property search service to help you find exactly what you're looking for, saving you time and effort.</p>
-                    </div>
-                    
-                    <!-- Service 4 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Property Valuation</h3>
-                        <p>Accurate property valuations based on market analysis, property condition, and local property trends.</p>
-                    </div>
-                    
-                    <!-- Service 5 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Negotiation</h3>
-                        <p>Expert negotiation skills to ensure you get the best possible deal whether buying or selling property.</p>
-                    </div>
-                    
-                    <!-- Service 6 -->
-                    <div class="service-box reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <h3>Legal Assistance</h3>
-                        <p>Guidance through the legal aspects of property transactions with connections to trusted conveyancing attorneys.</p>
+                </div>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="hero-img-container morph-animation">
+                        <img src="assets/images/realestate-hero.jpg" alt="JO4 Real Estate - Property Services" class="profile-image">
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Testimonials Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Client Testimonials</h2>
-                
-                <div class="testimonials-slider">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
+        </div>
+    </section>
+
+    <!-- Property Listings Section -->
+    <section id="properties" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Featured Properties</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Discover our selection of premium properties in top locations
+                </p>
+            </div>
+            
+            <div class="property-filters animate-on-scroll">
+                <button class="filter-item active" data-filter="all properties">All Properties</button>
+                <button class="filter-item" data-filter="for sale">For Sale</button>
+                <button class="filter-item" data-filter="for rent">For Rent</button>
+                <button class="filter-item" data-filter="commercial">Commercial</button>
+                <button class="filter-item" data-filter="residential">Residential</button>
+            </div>
+            
+         <!--   <div class="property-grid">
+                # Property 1
+                <div class="property-card animate-on-scroll" data-category="for sale,residential">
+                    <div class="property-img">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-price">R2,450,000</div>
+                        <img src="assets/images/property-1.jpg" alt="Modern Family Home for Sale">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Modern Family Home</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 123 Parkview Drive, Nigel
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 Beds</span>
                             </div>
-                            <p class="testimonial-text">"Jonathan helped us find our dream home in Cape Town. His knowledge of the area and understanding of our specific needs made the process smooth and enjoyable. We couldn't be happier with our new home!"</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/realestate/client1.jpg" alt="Client Testimonial" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>David & Sarah Mitchell</strong>
-                                    <div>Bought in Camps Bay</div>
-                                </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>2 Garage</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>280 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Beautiful modern family home with open-plan living areas, spacious kitchen, and landscaped garden. Perfect for growing families.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+
+                # Property 2
+                <div class="property-card animate-on-scroll" data-category="for rent,residential">
+                    <div class="property-img">
+                        <div class="property-status">For Rent</div>
+                        <div class="property-price">R15,500/month</div>
+                        <img src="assets/images/property-2.jpg" alt="Luxury Apartment for Rent">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Luxury Apartment</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 45 Central Avenue, Johannesburg
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>1 Parking</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>120 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Upscale apartment in a secure complex with stunning city views, modern finishes, and access to premium amenities.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+
+                # Property 3
+                <div class="property-card animate-on-scroll" data-category="for sale,commercial">
+                    <div class="property-img">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-price">R4,800,000</div>
+                        <img src="assets/images/property-3.jpg" alt="Commercial Office Space for Sale">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Office Building</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 78 Business Park, Pretoria
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-door-open"></i>
+                                <span>8 Offices</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-restroom"></i>
+                                <span>4 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>10 Parking</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>450 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Modern office building in prime business location. Includes conference rooms, kitchenette, and fiber internet connectivity.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+
+                # Property 4
+                <div class="property-card animate-on-scroll" data-category="for sale,residential">
+                    <div class="property-img">
+                        <div class="property-status">For Sale</div>
+                        <div class="property-price">R1,850,000</div>
+                        <img src="assets/images/property-4.jpg" alt="Cozy Townhouse for Sale">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Modern Townhouse</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 15 Garden Estate, Nigel
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2.5 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>1 Garage</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>180 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Beautiful townhouse in a secure complex with community pool and playground. Perfect for young families or professionals.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+
+                # Property 5
+                <div class="property-card animate-on-scroll" data-category="for rent,commercial">
+                    <div class="property-img">
+                        <div class="property-status">For Rent</div>
+                        <div class="property-price">R25,000/month</div>
+                        <img src="assets/images/property-5.jpg" alt="Retail Space for Rent">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Retail Space</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 100 Main Street, Johannesburg
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-door-open"></i>
+                                <span>Open Plan</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-restroom"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>5 Parking</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>200 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Prime retail space in high-traffic shopping area. Excellent visibility and foot traffic. Suitable for various retail businesses.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+
+                # Property 6
+                <div class="property-card animate-on-scroll" data-category="for rent,residential">
+                    <div class="property-img">
+                        <div class="property-status">For Rent</div>
+                        <div class="property-price">R8,500/month</div>
+                        <img src="assets/images/property-6.jpg" alt="Garden Cottage for Rent">
+                    </div>
+                    <div class="property-info">
+                        <h3 class="property-title">Garden Cottage</h3>
+                        <p class="property-address">
+                            <i class="fas fa-map-marker-alt"></i> 7 Willow Lane, Nigel
+                        </p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 Bed</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>1 Bath</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>1 Parking</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>75 m²</span>
+                            </div>
+                        </div>
+                        <p class="property-description">
+                            Charming garden cottage with private entrance and patio. Fully furnished with modern appliances and fast internet.
+                        </p>
+                        <a href="contact.html" class="btn estate-btn">Schedule Viewing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our Real Estate Services</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Comprehensive real estate solutions tailored to your needs
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="service-title">Property Sales</h3>
+                    <p class="service-description">
+                        Expert guidance throughout the entire selling process, from property valuation and marketing to negotiation and closing.
+                    </p>
+                </div>
+                
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="service-title">Property Buying</h3>
+                    <p class="service-description">
+                        Personalized property search based on your requirements, budget, and preferences, ensuring you find your perfect home.
+                    </p>
+                </div>
+                
+                <div class="service-item animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Property Management</h3>
+                    <p class="service-description">
+                        Comprehensive management services for rental properties, including tenant screening, maintenance coordination, and rent collection.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Stats Section -->
+    <section id="stats" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Market Insights</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Current trends and statistics in the South African real estate market
+                </p>
+            </div>
+            
+            <div class="stats-container animate-on-scroll">
+                <div class="stat-box">
+                    <div class="stat-value">6.4</div>
+                    <div class="stat-label">Average Property Value Increase (2025)</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">R1.3M</div>
+                    <div class="stat-label">Average Home Price in Gauteng</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">82</div>
+                    <div class="stat-label">Average Days on Market</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-value">~11%</div>
+                    <div class="stat-label">Average Rental Yield</div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-intro animate-on-scroll">
+                        The <span class="highlight">South African property landscape</span> continues to evolve—driven by lifestyle aspirations, shifting work habits, and strategic infrastructure investments.
+                        </p>
+
+                        <p class="about-description animate-on-scroll">
+                        Residential property values are rising steadily, with the most pronounced gains observed in suburban neighborhoods that offer secure living environments complemented by modern amenities and proximity to schools, transport links, and employment hubs. <a href="https://www.ft.com/content/4dba7763-9b41-417b-a614-4ea09112d430" target="_blank">[Source]</a>
+                        </p>
+
+                        <p class="about-description animate-on-scroll">
+                        The commercial sector is also undergoing transformation. As hybrid work becomes the norm, demand is shifting toward flexible offices, coworking spaces, and mixed-use developments that combine work, retail, and residential components in one location. <a href="https://www.rei.co.za/blog-posts/how-hybrid-workspace-models-are-revolutionising-office-spaces-in-south-africa" target="_blank">[Source]</a>
+                        </p>
+
+                        <p class="about-description animate-on-scroll">
+                        This creates promising opportunities for investors. Growth corridors supported by infrastructure upgrades are poised for long‑term capital appreciation. Meanwhile, established suburbs remain appealing for their consistent rental yields and reliable value growth. <a href="https://www.reuters.com/business/safricas-growthpoint-attacq-invest-billions-their-precincts-stronger-demand-2024-09-13" target="_blank">[Source]</a>
+                        </p>
+
+                        <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn estate-btn">Request Market Report</a>
+                        <a href="#properties" class="btn estate-btn-outline">View Properties</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="about-image animate-on-scroll">
+                    <div class="image-border morph-animation">
+                        <img src="assets/images/market-analysis.jpg" alt="Real Estate Market Analysis" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Client Testimonials</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    What our clients say about our real estate services
+                </p>
+            </div>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline active">
+                    <!-- Testimonial 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Home Buyer</div>
+                        <div class="timeline-content">
+                            <h3>"Personalized Property Search"</h3>
+                            <h4>David & Emily Wilson</h4>
+                            <p class="timeline-description">
+                                JO4 Real Estate truly understood what we were looking for in our first home. Their patience, market knowledge, and personalized approach helped us find a property that exceeded our expectations. The entire process was smooth and stress-free.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">First-Time Buyers</span>
+                                <span class="timeline-tag">Residential Property</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 2 -->
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">"Selling our family home was an emotional process, but Jonathan handled everything with professionalism and care. He got us a great price and made sure all the details were taken care of. Highly recommended!"</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/realestate/client2.jpg" alt="Client Testimonial" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>Robert Johnson</strong>
-                                    <div>Sold in Constantia</div>
-                                </div>
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Property Seller</div>
+                        <div class="timeline-content">
+                            <h3>"Professional Marketing & Quick Sale"</h3>
+                            <h4>Michael Thompson</h4>
+                            <p class="timeline-description">
+                                I was impressed by JO4's professional approach to selling my property. Their market analysis was spot-on, their marketing strategy was effective, and they secured a buyer above my asking price within just three weeks.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Property Sale</span>
+                                <span class="timeline-tag">Market Strategy</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 3 -->
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">"As an overseas investor, I needed someone I could trust to help me find the right rental property. Jonathan's market knowledge and attention to detail were invaluable. The property he found has been an excellent investment."</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/realestate/client3.jpg" alt="Client Testimonial" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>Emma Wilson</strong>
-                                    <div>International Investor</div>
-                                </div>
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Investor</div>
+                        <div class="timeline-content">
+                            <h3>"Valuable Investment Guidance"</h3>
+                            <h4>Sarah Johnson, Property Investor</h4>
+                            <p class="timeline-description">
+                                JO4 Real Estate's investment consulting services have been invaluable for expanding my property portfolio. Their market insights and property recommendations have consistently delivered strong returns on my investments.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Investment Property</span>
+                                <span class="timeline-tag">Market Analysis</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Testimonial Navigation -->
-                <div class="testimonial-nav">
-                    <button class="testimonial-prev" aria-label="Previous testimonial">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="testimonial-next" aria-label="Next testimonial">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Section -->
-        <section id="contact" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Contact Your Property Specialist</h2>
-                
-                <div class="contact-content">
-                    <div class="contact-info reveal">
-                        <div class="agent-card">
-                            <img src="assets/images/jonathan-profile.jpg" alt="Jonathan Roets" class="agent-image">
-                            <div class="agent-details">
-                                <h3>Jonathan Roets</h3>
-                                <p>Certified Property Practitioner</p>
-                                <div class="agent-contact">
-                                    <p><i class="fas fa-phone"></i> <a href="tel:+27123456783">+27 12 345 6783</a></p>
-                                    <p><i class="fas fa-envelope"></i> <a href="mailto:property@jo4.co.za">property@jo4.co.za</a></p>
-                                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
-                                </div>
-                                <div class="agent-socials">
-                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="agent-certifications">
-                            <h4>Certifications & Partners</h4>
-                            <div class="certification-logos">
-                                <img src="assets/images/realestate/cert1.png" alt="PPRA Certified" class="cert-logo">
-                                <img src="assets/images/realestate/cert2.png" alt="Larney Properties" class="cert-logo">
-                                <img src="assets/images/realestate/cert3.png" alt="Real Estate Business Owners of SA" class="cert-logo">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-container reveal">
-                        <form id="property-contact-form" class="contact-form card">
-                            <h3>Send Me a Message</h3>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">Full Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="inquiry-type">Inquiry Type</label>
-                                <select id="inquiry-type" name="inquiryType" class="form-control" required>
-                                    <option value="">Select inquiry type</option>
-                                    <option value="buying">I'm interested in buying</option>
-                                    <option value="selling">I want to sell my property</option>
-                                    <option value="renting">I'm looking for a rental</option>
-                                    <option value="valuation">I need a property valuation</option>
-                                    <option value="other">Other inquiry</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-                            </div>
-                            
-                            <!-- Anti-spam honeypot field (hidden from users) -->
-                            <div class="form-group" style="display:none">
-                                <label for="honeypot">Leave this empty</label>
-                                <input type="text" id="honeypot" name="honeypot" autocomplete="off">
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="btn">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Viewing Request Modal -->
-        <div id="viewing-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2>Request a Viewing</h2>
-                <p>Complete the form below to request a viewing of <span class="modal-property-title">this property</span>.</p>
-                
-                <form id="viewing-request-form">
-                    <input type="hidden" id="property-id" name="propertyId">
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="viewing-name">Full Name</label>
-                                <input type="text" id="viewing-name" name="name" class="form-control" required>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="viewing-phone">Phone Number</label>
-                                <input type="tel" id="viewing-phone" name="phone" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="viewing-email">Email Address</label>
-                        <input type="email" id="viewing-email" name="email" class="form-control" required>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="viewing-date">Preferred Date</label>
-                                <input type="date" id="viewing-date" name="date" class="form-control" required min="2025-08-27">
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="viewing-time">Preferred Time</label>
-                                <select id="viewing-time" name="time" class="form-control" required>
-                                    <option value="">Select time</option>
-                                    <option value="morning">Morning (9am - 12pm)</option>
-                                    <option value="afternoon">Afternoon (12pm - 4pm)</option>
-                                    <option value="evening">Evening (4pm - 7pm)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="viewing-message">Additional Information</label>
-                        <textarea id="viewing-message" name="message" class="form-control" rows="3"></textarea>
-                    </div>
-                    
-                    <!-- Anti-spam honeypot field (hidden from users) -->
-                    <div class="form-group" style="display:none">
-                        <label for="viewing-honeypot">Leave this empty</label>
-                        <input type="text" id="viewing-honeypot" name="honeypot" autocomplete="off">
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn">Submit Request</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </main>
-    
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Get in Touch</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Contact us to discuss your real estate needs
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Contact Information</h3>
+                    <p class="contact-description">
+                        Whether you're looking to buy, sell, or invest in property, our team is here to help. Reach out to discuss your real estate needs and goals.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office</h4>
+                                <p>Nigel, Gauteng, South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 8:30 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn estate-btn">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" value="Real Estate Inquiry" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="propertyType">Property Interest</label>
+                            <select id="propertyType" name="propertyType" required>
+                                <option value="">Select an option</option>
+                                <option value="Buying">Buying a Property</option>
+                                <option value="Selling">Selling a Property</option>
+                                <option value="Renting">Renting a Property</option>
+                                <option value="Investment">Property Investment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn estate-btn form-submit">
+                            <span class="submit-text">Send Message</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-logo">
                     <h3>JO4 Real Estate</h3>
-                    <p>Professional property services for buying, selling, and renting in Cape Town and surrounding areas.</p>
-                    <p class="mt-3">
-                        <strong>Last Updated:</strong> <span class="last-updated">2025-08-26 21:52:27</span><br>
-                        <strong>© JO4 Real Estate</strong> - All rights reserved
-                    </p>
+                    <p>Finding Your Perfect Property</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#property-listings">Properties</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:property@jo4.co.za">property@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456783">+27 12 345 6783</a></p>
-                    <div class="social-icons mt-3">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4 Real Estate. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 15:00:58 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
-    <!-- WhatsApp Quick Contact Button -->
-    <a href="https://wa.me/27123456783?text=Hi%20Jonathan,%20I'm%20interested%20in%20a%20property%20on%20your%20website." class="whatsapp-button" aria-label="Property inquiry via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="assets/js/listings.js"></script>
-    <script src="assets/js/form-handler.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

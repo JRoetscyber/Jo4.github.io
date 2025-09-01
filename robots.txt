@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /assets/documents/
-Disallow: /assets/data/
-
-Sitemap: https://jo4.co.za/sitemap.xml

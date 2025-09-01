@@ -1,0 +1,213 @@
+/* JO4 Brew Special Styling */
+:root {
+  --primary-red: #9B1C2D;
+  --accent-red: #C53030;
+  --bg-light: #FDF8F5;
+  --bg-dark: #1F1F1F;
+  --text-light: #2F2F2F;
+  --text-dark: #F5F5F5;
+  --accent-warm-light: #D4B8A5;
+  --accent-warm-dark: #A1866F;
+  
+  /* Override global theme for JO4 Brew */
+  --primary-color: var(--primary-red);
+  --secondary-color: var(--accent-red);
+  --bg-color: var(--bg-light);
+  --text-color: var(--text-light);
+  --accent-color: var(--accent-warm-light);
+  --nav-bg: rgba(253, 248, 245, 0.95);
+  --card-bg: #fff;
+  --border-color: var(--accent-warm-light);
+  --shadow: 0 2px 10px rgba(155, 28, 45, 0.1);
+}
+
+body {
+  font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--bg-dark);
+  --text-color: var(--text-dark);
+  --accent-color: var(--accent-warm-dark);
+  --nav-bg: rgba(31, 31, 31, 0.95);
+  --card-bg: #2a2a2a;
+  --shadow: 0 2px 10px rgba(155, 28, 45, 0.2);
+}
+
+/* JO4 Brew Specific Elements */
+.brew-hero {
+  background-color: var(--primary-red);
+  color: white;
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.brew-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.brew-hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.brew-btn {
+  background-color: white;
+  color: var(--primary-red);
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.brew-btn:hover {
+  background-color: var(--accent-warm-light);
+  color: var(--primary-red);
+  transform: translateY(-2px);
+}
+
+.menu-section {
+  background-color: var(--bg-light);
+  padding: 5rem 0;
+}
+
+.menu-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(155, 28, 45, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(155, 28, 45, 0.15);
+}
+
+.menu-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.menu-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-title {
+  font-size: 1.4rem;
+  color: var(--primary-red);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.menu-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-top: auto;
+}
+
+.coffee-shop-section {
+  background-color: var(--accent-warm-light);
+  padding: 5rem 0;
+  color: var(--primary-red);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 250px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.coffee-quote {
+  font-style: italic;
+  font-size: 1.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 3rem auto;
+  color: var(--primary-red);
+}
+
+/* Navbar override for JO4 Brew */
+.brew-navbar .logo {
+  color: var(--primary-red);
+}
+
+.brew-navbar .nav-links a {
+  color: var(--primary-red);
+  font-weight: 600;
+}
+
+.brew-navbar .nav-links a:hover {
+  color: var(--accent-red);
+}
+
+/* Footer override for JO4 Brew */
+.brew-footer {
+  background-color: var(--primary-red);
+  color: white;
+}
+
+.brew-footer a {
+  color: white;
+}
+
+.brew-footer a:hover {
+  color: var(--accent-warm-light);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .brew-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .coffee-quote {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .brew-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

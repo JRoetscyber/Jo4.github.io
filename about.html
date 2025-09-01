@@ -1,481 +1,1320 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Jonathan Roets (JO4) — Cybersecurity, Coffee & Real Estate</title>
-    <meta name="description" content="Learn about Jonathan Roets (JO4) — Python developer, certified property practitioner, and owner of JO4 Brew mobile coffee trailer.">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="About Jonathan Roets (JO4)">
-    <meta property="og:description" content="Python developer, certified property practitioner, and owner of JO4 Brew mobile coffee trailer.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/jonathan-profile-social.jpg">
-    <meta property="og:url" content="https://jo4.co.za/about">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>About JO4 | Jonathan Roets - Security, Brew & Real Estate</title>
+    <meta name="description" content="Learn about Jonathan Roets and JO4's ventures in cybersecurity, coffee services, and real estate. Discover our expertise, mission, and professional journey.">
+    <meta name="keywords" content="Jonathan Roets, JO4, cybersecurity expert, coffee entrepreneur, real estate professional, South Africa">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .skills-wrapper {
+            margin-top: 3rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 3rem;
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .skill-level {
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 4px;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 1.5s ease;
+        }
+        
+        /* Certifications styling */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .certification-card {
+            position: relative;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent-primary);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .certification-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+        }
+        
+        .certification-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .certification-issuer {
+            color: var(--accent-primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .certification-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .certification-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .certification-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            margin-top: auto;
+        }
+        
+        .certification-link:hover {
+            color: var(--accent-secondary);
+            transform: translateX(5px);
+        }
+        
+        .certification-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.3);
+        }
+        
+        /* Education timeline enhancements */
+        .education-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+        
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-primary);
+            opacity: 0.3;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-content {
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            width: calc(50% - 30px);
+            margin-left: calc(50% + 30px);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background: var(--surface);
+            transform: rotate(45deg);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(50% - 50px);
+            text-align: right;
+            padding: 20px;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 4px rgba(var(--accent-primary-rgb), 0.2);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 0;
+            margin-right: calc(50% + 30px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: auto;
+            right: 0;
+            text-align: left;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: auto;
+            right: -10px;
+        }
+        
+        .education-icon {
+            background: var(--gradient-primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.3);
+        }
+        
+        /* Skill chart styling */
+        .skill-chart-container {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .skill-chart {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .chart-segment {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .chart-segment:hover {
+            transform: translateX(10px) translateY(-10px);
+        }
+        
+        .chart-segment:nth-child(1) {
+            background: var(--accent-primary);
+            clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%);
+        }
+        
+        .chart-segment:nth-child(2) {
+            background: var(--accent-secondary);
+            clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+        }
+        
+        .chart-segment:nth-child(3) {
+            background: var(--accent-tertiary);
+            clip-path: polygon(50% 50%, 50% 100%, 0 100%, 0 50%);
+        }
+        
+        .chart-segment:nth-child(4) {
+            background: #ff9f43;
+            clip-path: polygon(50% 50%, 0 50%, 0 0, 50% 0);
+        }
+        
+        .chart-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        
+        .chart-center img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .chart-label {
+            position: absolute;
+            font-weight: 600;
+            color: white;
+            font-size: 0.9rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .chart-label:nth-child(5) {
+            top: 25%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .chart-label:nth-child(6) {
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .chart-label:nth-child(7) {
+            top: 75%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .chart-label:nth-child(8) {
+            top: 25%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px;
+                margin-right: 0;
+            }
+            
+            .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                position: relative;
+                width: 100%;
+                left: 50px;
+                right: auto;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timeline-dot {
+                left: 15px;
+            }
+            
+            .education-timeline::before {
+                left: 15px;
+            }
+            
+            .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="secure.html">JO4 SECURE</a></li>
-                    <li><a href="brew.html">JO4 Brew</a></li>
-                    <li><a href="realestate.html">Real Estate</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" style="background-image: url('assets/images/hero/about-hero.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>About Jonathan</h1>
-                    <p>Python developer, certified property practitioner, and owner of JO4 Brew.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Profile Section -->
-        <section class="section">
-            <div class="container">
-                <div class="profile-content">
-                    <div class="profile-image reveal">
-                        <img src="assets/images/jonathan-profile.jpg" alt="Jonathan Roets" class="rounded">
-                    </div>
-                    <div class="profile-text reveal">
-                        <h2>Hi, I'm Jonathan (JO4)</h2>
-                        <p>I'm a Python developer, certified property practitioner, and owner of a mobile coffee trailer based in South Africa. I build secure applications, serve events, and help clients buy and sell homes.</p>
-                        <p>With experience spanning cybersecurity, software development, and entrepreneurship, I bring a unique perspective to each of my ventures. My passion lies in creating secure digital solutions, delivering exceptional coffee experiences, and helping people find their perfect property.</p>
-                        <p>Whether you need cybersecurity consulting, a mobile coffee service for your event, or assistance with real estate, I'm here to help.</p>
-                        <div class="profile-cta mt-4">
-                            <a href="contact.html" class="btn">Get in Touch</a>
-                            <a href="assets/documents/jonathan-roets-cv.pdf" class="btn btn-outline" download>Download CV</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Education & Certifications -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Education & Certifications</h2>
-                
-                <div class="timeline">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>BSc Computer Science</h3>
-                            <p class="timeline-date">2018 - 2021</p>
-                            <p>University of Cape Town</p>
-                            <p>Focus on software development, algorithms, and cybersecurity.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Certified Property Practitioner</h3>
-                            <p class="timeline-date">2022</p>
-                            <p>Property Practitioners Regulatory Authority (PPRA)</p>
-                            <p>Licensed real estate professional in South Africa.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Certified Ethical Hacker (CEH)</h3>
-                            <p class="timeline-date">2022</p>
-                            <p>EC-Council</p>
-                            <p>Professional certification for ethical hacking and penetration testing.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-coffee"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Specialty Coffee Association (SCA) Barista Skills</h3>
-                            <p class="timeline-date">2023</p>
-                            <p>Intermediate Level</p>
-                            <p>Professional training in espresso preparation and milk techniques.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Work History -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Work Experience</h2>
-                
-                <div class="timeline">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Founder & Owner</h3>
-                            <p class="timeline-date">2023 - Present</p>
-                            <p>JO4 Brew</p>
-                            <p>Operating a mobile coffee trailer for events, markets, and private functions throughout South Africa.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Property Practitioner</h3>
-                            <p class="timeline-date">2022 - Present</p>
-                            <p>Larney Properties</p>
-                            <p>Assisting clients with buying, selling, and renting properties in the Cape Town area.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Cybersecurity Consultant</h3>
-                            <p class="timeline-date">2021 - Present</p>
-                            <p>JO4 SECURE</p>
-                            <p>Providing penetration testing, security assessments, and consulting services to businesses of all sizes.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-marker">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <h3>Software Developer</h3>
-                            <p class="timeline-date">2019 - 2021</p>
-                            <p>TechSA Solutions</p>
-                            <p>Developed web applications and APIs using Python, Django, and React.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Skills Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Skills & Expertise</h2>
-                
-                <div class="skills-container">
-                    <!-- Technical Skills -->
-                    <div class="skills-category reveal">
-                        <h3>Technical</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Python</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="95%" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Penetration Testing</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="90%" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Web Development</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="85%" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Network Security</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="80%" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Business Skills -->
-                    <div class="skills-category reveal">
-                        <h3>Business</h3>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Real Estate</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="90%" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Coffee Service</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="95%" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Project Management</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="80%" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>Client Relations</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-progress="85%" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tools & Technologies -->
-                <div class="tools-container mt-5 reveal">
-                    <h3 class="text-center mb-4">Tools & Technologies</h3>
-                    
-                    <div class="tools-grid">
-                        <div class="tool-badge">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5/CSS3</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fab fa-django"></i>
-                            <span>Django</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fas fa-database"></i>
-                            <span>SQL</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fab fa-linux"></i>
-                            <span>Linux</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fas fa-network-wired"></i>
-                            <span>Networking</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fas fa-lock"></i>
-                            <span>Kali Linux</span>
-                        </div>
-                        <div class="tool-badge">
-                            <i class="fas fa-coffee"></i>
-                            <span>La Marzocco</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Personal Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Personal Approach</h2>
-                
-                <div class="values-grid">
-                    <div class="value-card reveal">
-                        <div class="value-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Security First</h3>
-                        <p>I believe that security should never be an afterthought. Every solution I build is designed with protection and privacy at its core.</p>
-                    </div>
-                    
-                    <div class="value-card reveal">
-                        <div class="value-icon">
-                            <i class="fas fa-mug-hot"></i>
-                        </div>
-                        <h3>Quality Experience</h3>
-                        <p>Whether serving coffee or delivering code, I'm committed to creating memorable experiences that exceed expectations.</p>
-                    </div>
-                    
-                    <div class="value-card reveal">
-                        <div class="value-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Client Partnership</h3>
-                        <p>I build relationships based on trust and transparency, working closely with clients to understand and fulfill their unique needs.</p>
-                    </div>
-                    
-                    <div class="value-card reveal">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Continuous Innovation</h3>
-                        <p>I'm constantly exploring new technologies and approaches to deliver cutting-edge solutions that give my clients an edge.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- CTA Section -->
-        <section class="section cta-section bg-light">
-            <div class="container">
-                <div class="cta-content text-center reveal">
-                    <h2>Ready to work together?</h2>
-                    <p>Whether you need cybersecurity consulting, mobile coffee services, or real estate assistance, let's connect.</p>
-                    <div class="cta-buttons mt-4">
-                        <a href="contact.html" class="btn">Contact Me</a>
-                        <a href="assets/documents/jonathan-roets-cv.pdf" class="btn btn-outline" download>Download CV</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section id="about-hero" class="hero">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JO4</h3>
-                    <p>Cybersecurity consulting, event coffee services, and professional real-estate services.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">About</span>
+                        <span class="name">Jonathan Roets</span>
+                        <span class="role">Entrepreneur & Security Professional</span>
+                    </h1>
+                    <p class="hero-description">
+                        A multifaceted professional with expertise in cybersecurity, coffee services, and real estate. Dedicated to excellence, innovation, and creating value across diverse fields.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#skills" class="btn btn-primary" title="View Skills">
+                            <span>My Skills</span>
+                            <i class="fas fa-chart-bar"></i>
+                        </a>
+                        <a href="#qualifications" class="btn btn-secondary" title="View Qualifications">
+                            <span>Qualifications</span>
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="hero-img-container morph-animation">
+                        <img src="assets/images/profile.jpg" alt="Jonathan Roets - JO4 Founder" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Who I Am</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <div class="image-border morph-animation">
+                        <img src="assets/images/about-me.jpg" alt="Jonathan Roets - About JO4" class="profile-image">
+                    </div>
+                    <div class="experience-badge">
+                        <div class="number">7+</div>
+                        <div class="text">Years Experience</div>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="secure.html">JO4 SECURE</a></li>
-                        <li><a href="brew.html">JO4 Brew</a></li>
-                        <li><a href="realestate.html">Real Estate</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="about-text">
+                    <p class="about-intro animate-on-scroll">
+                        I'm Jonathan Roets, a <span class="highlight">cybersecurity professional</span>, <span class="highlight">coffee entrepreneur</span>, and <span class="highlight">real estate consultant</span> based in Nigel, South Africa.
+                    </p>
+                    <p class="about-description animate-on-scroll">
+                        My journey began in the realm of information security, where I developed a passion for protecting digital assets and infrastructure from evolving cyber threats. Over the years, I've expanded my expertise into diverse fields, founding JO4 as an umbrella for my professional ventures.
+                    </p>
+                    <p class="about-description animate-on-scroll">
+                        Through JO4 Security, I provide comprehensive cybersecurity services including penetration testing, vulnerability assessments, and security consulting. My mobile coffee business, JO4 Brew, combines my love for premium coffee with entrepreneurial spirit, delivering exceptional coffee experiences at events and gatherings. In the real estate sector, I help clients navigate property transactions with expert guidance and market insights.
+                    </p>
+                    
+                    <div class="about-details animate-on-scroll">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Security Expert</h3>
+                                <p>Certified cybersecurity professional</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Coffee Entrepreneur</h3>
+                                <p>Mobile coffee service provider</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Real Estate Consultant</h3>
+                                <p>Property market specialist</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Location</h3>
+                                <p>Nigel, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+                        <a href="assets/files/resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+                    </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:contact@jo4.co.za">contact@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/JRoetscyber" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">My Skills</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    A comprehensive overview of my professional competencies across multiple disciplines
+                </p>
+            </div>
+            
+            <div class="skill-chart-container animate-on-scroll">
+                <div class="skill-chart">
+                    <div class="chart-segment"></div>
+                    <div class="chart-segment"></div>
+                    <div class="chart-segment"></div>
+                    <div class="chart-segment"></div>
+                    <div class="chart-label">Security</div>
+                    <div class="chart-label">Coffee</div>
+                    <div class="chart-label">Real Estate</div>
+                    <div class="chart-label">Business</div>
+                    <div class="chart-center">
+                        <img src="assets/images/profile-small.jpg" alt="Jonathan Roets">
                     </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Last updated: <span class="last-updated">2025-08-26 21:43:35</span> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="skills-wrapper">
+                <!-- Cybersecurity Skills -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="category-title">Cybersecurity Skills</h3>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Penetration Testing</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Vulnerability Assessment</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Network Security</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Web Application Security</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Digital Forensics</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Incident Response</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technical Skills -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="category-title">Technical Skills</h3>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Bash/Shell Scripting</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Linux Systems</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Network Protocols</span>
+                                <span class="skill-level">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">SQL & Databases</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Web Development</span>
+                                <span class="skill-level">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business & Entrepreneurship Skills -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="category-title">Business & Entrepreneurship</h3>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Business Management</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Client Relationship Management</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Market Analysis</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Strategic Planning</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Project Management</span>
+                                <span class="skill-level">86%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Financial Management</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Domain-Specific Skills -->
+                <div class="skill-category animate-on-scroll">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="category-title">Domain-Specific Expertise</h3>
+                    </div>
+                    
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Coffee Brewing & Preparation</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Barista Skills</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Real Estate Valuation</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Property Market Analysis</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Mobile Business Operations</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Event Management</span>
+                                <span class="skill-level">84%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section id="qualifications" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Qualifications & Certifications</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Professional credentials validating my expertise across multiple disciplines
+                </p>
+            </div>
+            
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card animate-on-scroll">
+                    <div class="certification-badge">Top Credential</div>
+                    <img src="assets/images/cert-cissp.png" alt="CISSP Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">Certified Information Systems Security Professional (CISSP)</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> (ISC)²
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: January 2023
+                    </p>
+                    <p class="certification-description">
+                        Globally recognized certification demonstrating expertise in designing, implementing, and managing cybersecurity programs. Covers eight domains including security and risk management, asset security, and security operations.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="certification-card animate-on-scroll">
+                    <img src="assets/images/cert-ceh.png" alt="CEH Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">Certified Ethical Hacker (CEH)</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> EC-Council
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: March 2022
+                    </p>
+                    <p class="certification-description">
+                        Advanced certification in ethical hacking methodologies and techniques. Demonstrates proficiency in identifying vulnerabilities, conducting penetration tests, and securing systems against sophisticated attacks.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="certification-card animate-on-scroll">
+                    <img src="assets/images/cert-oscp.png" alt="OSCP Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">Offensive Security Certified Professional (OSCP)</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> Offensive Security
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: August 2023
+                    </p>
+                    <p class="certification-description">
+                        Hands-on penetration testing certification requiring demonstrated ability to compromise systems, exploit vulnerabilities, and conduct post-exploitation activities in a controlled environment.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 4 -->
+                <div class="certification-card animate-on-scroll">
+                    <img src="assets/images/cert-aws.png" alt="AWS Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">AWS Certified Security - Specialty</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> Amazon Web Services
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: November 2023
+                    </p>
+                    <p class="certification-description">
+                        Validates expertise in AWS security services, tools, and best practices. Demonstrates ability to secure AWS workloads, implement compliance requirements, and design resilient architectures.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 5 -->
+                <div class="certification-card animate-on-scroll">
+                    <img src="assets/images/cert-sca.png" alt="SCA Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">Specialty Coffee Association (SCA) Barista Skills</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> Specialty Coffee Association
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: May 2022
+                    </p>
+                    <p class="certification-description">
+                        Professional certification in advanced barista skills, coffee preparation techniques, and customer service. Covers espresso extraction, milk texturing, latte art, and coffee sensory evaluation.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+                
+                <!-- Certification 6 -->
+                <div class="certification-card animate-on-scroll">
+                    <img src="assets/images/cert-realestate.png" alt="Real Estate Certification Logo" class="certification-logo">
+                    <h3 class="certification-name">Professional Real Estate Certificate</h3>
+                    <p class="certification-issuer">
+                        <i class="fas fa-certificate"></i> South African Real Estate Academy
+                    </p>
+                    <p class="certification-date">
+                        <i class="far fa-calendar-alt"></i> Obtained: February 2024
+                    </p>
+                    <p class="certification-description">
+                        Comprehensive certification in real estate practices, property valuation, market analysis, and client representation. Meets regulatory requirements for professional real estate services in South Africa.
+                    </p>
+                    <a href="#" class="certification-link">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Education & Training</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    My academic journey and professional development path
+                </p>
+            </div>
+            
+            <div class="education-timeline">
+                <!-- Education Item 1 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2017 - 2020</div>
+                    <div class="timeline-content">
+                        <div class="education-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Bachelor of Science in Computer Science</h3>
+                        <h4>University of Pretoria</h4>
+                        <p>
+                            Comprehensive program in computer science with specialization in cybersecurity and network infrastructure. Graduated with honors, completing research project on intrusion detection systems.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Computer Science</span>
+                            <span class="timeline-tag">Cybersecurity</span>
+                            <span class="timeline-tag">Honors</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 2 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <div class="education-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Advanced Penetration Testing Program</h3>
+                        <h4>Offensive Security</h4>
+                        <p>
+                            Intensive hands-on training in advanced penetration testing methodologies, exploit development, and security assessment techniques. Completed with distinction, earning OSCP certification.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Penetration Testing</span>
+                            <span class="timeline-tag">Hands-on Training</span>
+                            <span class="timeline-tag">OSCP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 3 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-content">
+                        <div class="education-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3>Professional Barista Certification</h3>
+                        <h4>Specialty Coffee Academy</h4>
+                        <p>
+                            Comprehensive barista training covering coffee preparation techniques, espresso extraction, latte art, coffee bean selection, and customer service. Included business management modules for coffee entrepreneurs.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Coffee</span>
+                            <span class="timeline-tag">Barista Skills</span>
+                            <span class="timeline-tag">Business Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 4 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <div class="education-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Real Estate Professional Program</h3>
+                        <h4>South African Real Estate Academy</h4>
+                        <p>
+                            Accredited training program in real estate practices, property valuation, market analysis, and legal requirements. Included practical modules in client representation and negotiation strategies.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Real Estate</span>
+                            <span class="timeline-tag">Property Management</span>
+                            <span class="timeline-tag">Market Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 5 -->
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <div class="education-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Security Specialization</h3>
+                        <h4>AWS Training & Certification</h4>
+                        <p>
+                            Advanced training in cloud security architectures, best practices, and compliance frameworks. Focused on securing AWS environments, implementing security controls, and conducting cloud security assessments.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Cloud Security</span>
+                            <span class="timeline-tag">AWS</span>
+                            <span class="timeline-tag">Compliance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Let's Connect</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Interested in working together? Get in touch to discuss how I can help with your security, coffee, or real estate needs.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Contact Information</h3>
+                    <p class="contact-description">
+                        Feel free to reach out through any of the channels below. I'm always open to discussing new projects, opportunities, or partnerships.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nigel, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h4>Connect With Me</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span class="submit-text">Send Message</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                    
+                    <div id="formSuccess" class="form-success">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting me. I'll get back to you soon.</p>
+                        <button class="btn btn-primary" onclick="resetForm()">Send Another Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>JO4</h3>
+                    <p>Security • Brew • Real Estate</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="projects.html" title="Cybersecurity Projects">Projects</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 16:47:25 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

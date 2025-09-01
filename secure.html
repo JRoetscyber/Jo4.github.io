@@ -1,779 +1,928 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JO4 SECURE — Practical Cybersecurity, Ethical Hacking & Application Security</title>
-    <meta name="description" content="JO4 SECURE provides penetration testing, secure code reviews, vulnerability assessments, and security training services.">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="JO4 SECURE — Practical Cybersecurity Services">
-    <meta property="og:description" content="Professional penetration testing, secure code reviews, vulnerability assessments, and security training.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/secure/secure-social.jpg">
-    <meta property="og:url" content="https://jo4.co.za/secure">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>JO4 Security | Cybersecurity Services & Solutions</title>
+    <meta name="description" content="Professional cybersecurity services including penetration testing, vulnerability assessments, and security consulting to protect your digital assets and infrastructure.">
+    <meta name="keywords" content="cybersecurity services, penetration testing, security consulting, vulnerability assessment, information security, network security">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/secure.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Syntax Highlighting for Code Snippets -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <style>
+        /* Security-specific styling */
+        .code-text {
+            font-family: 'Source Code Pro', monospace;
+            color: var(--accent-primary);
+        }
+        
+        .security-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%), url('assets/images/security-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .security-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-primary) 0%, transparent 100%);
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .security-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-left-width: 8px;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(var(--accent-primary-rgb), 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .security-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-primary);
+            font-family: 'Source Code Pro', monospace;
+        }
+        
+        .security-process {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        
+        .security-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .tool-item {
+            padding: 0.5rem 1rem;
+            background: var(--surface);
+            border-radius: 30px;
+            font-family: 'Source Code Pro', monospace;
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-item:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .terminal-section {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terminal-container {
+            background-color: #0c0c0c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background-color: #ff5f57; }
+        .dot-yellow { background-color: #febc2e; }
+        .dot-green { background-color: #28c840; }
+        
+        .terminal-title {
+            position: absolute;
+            top: 0.5rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .terminal-content {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .terminal-prompt {
+            color: #64dd17;
+        }
+        
+        .terminal-command {
+            color: #f0f0f0;
+        }
+        
+        .terminal-output {
+            color: #888;
+        }
+        
+        .terminal-highlight {
+            color: #ff9e64;
+        }
+        
+        .terminal-warning {
+            color: #e91e63;
+        }
+        
+        .terminal-success {
+            color: #64dd17;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .hexagon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .hexagon {
+            position: relative;
+            width: 120px;
+            height: 138px;
+            margin: 15px;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            background: var(--surface);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .hexagon:hover {
+            transform: translateY(-10px);
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .hexagon i {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .hexagon:hover i {
+            color: white;
+        }
+        
+        .hexagon span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        @media (max-width: 992px) {
+            .security-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .process-step, .process-step:nth-child(even) {
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .security-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="secure-page" data-theme="dark">
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="secure.html" class="active">JO4 SECURE</a></li>
-                    <li><a href="brew.html">JO4 Brew</a></li>
-                    <li><a href="realestate.html">Real Estate</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+<body>
+     <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero secure-hero" style="background-image: url('assets/images/secure/secure-hero.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>JO4 SECURE</h1>
-                    <p>Practical Cybersecurity, Ethical Hacking & Application Security</p>
-                    <div class="hero-cta">
-                        <a href="#services" class="btn">Explore Services</a>
-                        <a href="#contact" class="btn btn-outline">Request Assessment</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Services Section -->
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Our Security Services</h2>
-                
-                <div class="services-grid">
-                    <!-- Penetration Testing -->
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-user-secret"></i>
-                        </div>
-                        <h3>Penetration Testing</h3>
-                        <p>Simulate real-world attacks to identify vulnerabilities in your systems before malicious actors do.</p>
-                        <ul class="service-features">
-                            <li>Web Application Testing</li>
-                            <li>Network Infrastructure Testing</li>
-                            <li>Wireless Network Assessment</li>
-                            <li>API Security Testing</li>
-                            <li>Mobile Application Security</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline">Get Started</a>
-                    </div>
-                    
-                    <!-- Code Reviews -->
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Secure Code Reviews</h3>
-                        <p>Identify security flaws in your application's source code before they make it to production.</p>
-                        <ul class="service-features">
-                            <li>Manual Code Inspection</li>
-                            <li>Static Application Security Testing</li>
-                            <li>Security Best Practices</li>
-                            <li>Dependency Analysis</li>
-                            <li>Remediation Guidance</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline">Get Started</a>
-                    </div>
-                    
-                    <!-- Vulnerability Assessment -->
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Vulnerability Assessment</h3>
-                        <p>Comprehensive scanning and assessment to identify security weaknesses across your systems.</p>
-                        <ul class="service-features">
-                            <li>Automated Vulnerability Scanning</li>
-                            <li>Comprehensive Reporting</li>
-                            <li>Risk Prioritization</li>
-                            <li>Compliance Mapping</li>
-                            <li>Remediation Recommendations</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline">Get Started</a>
-                    </div>
-                    
-                    <!-- Security Training -->
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h3>Security Training</h3>
-                        <p>Empower your team with the knowledge to build and maintain secure applications and systems.</p>
-                        <ul class="service-features">
-                            <li>Developer Security Training</li>
-                            <li>Security Awareness Workshops</li>
-                            <li>Custom Training Programs</li>
-                            <li>Hands-on Security Labs</li>
-                            <li>OWASP Top 10 Deep Dives</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Methodology Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Our Methodology</h2>
-                
-                <div class="methodology-steps">
-                    <div class="methodology-step reveal">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Discovery & Scoping</h3>
-                            <p>We begin by understanding your systems, applications, and specific security concerns to define the scope of our assessment.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-step reveal">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Assessment & Testing</h3>
-                            <p>Our team conducts thorough testing using both automated tools and manual techniques to identify vulnerabilities.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-step reveal">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Analysis & Verification</h3>
-                            <p>We analyze findings, eliminate false positives, and verify the impact of each vulnerability.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-step reveal">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Comprehensive Reporting</h3>
-                            <p>You receive a detailed report of all findings, including severity ratings, proof of concepts, and exploitation scenarios.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-step reveal">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h3>Remediation Guidance</h3>
-                            <p>We provide clear, actionable recommendations to address each vulnerability, prioritized by risk.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="methodology-step reveal">
-                        <div class="step-number">6</div>
-                        <div class="step-content">
-                            <h3>Follow-up & Verification</h3>
-                            <p>After you've implemented fixes, we can verify that vulnerabilities have been properly remediated.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Case Studies & Projects</h2>
-                
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card reveal" id="project1">
-                        <div class="project-header">
-                            <h3>E-commerce Platform Security Audit</h3>
-                            <span class="project-tag">Web Application</span>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-description">
-                                <h4>Challenge</h4>
-                                <p>A growing e-commerce platform needed to ensure their customer data and payment systems were secure before expanding to international markets.</p>
-                                
-                                <h4>Approach</h4>
-                                <p>We conducted a comprehensive security assessment including penetration testing, code review, and infrastructure evaluation.</p>
-                                
-                                <h4>Findings</h4>
-                                <ul>
-                                    <li>SQL injection vulnerability in product search</li>
-                                    <li>Insecure direct object references in user accounts</li>
-                                    <li>Insufficient TLS configuration</li>
-                                    <li>Cross-site scripting in product reviews</li>
-                                </ul>
-                                
-                                <h4>Outcome</h4>
-                                <p>All critical vulnerabilities were remediated, allowing the client to securely expand their business while protecting customer data.</p>
-                                
-                                <div class="project-code">
-                                    <h4>Vulnerability Example (Remediated)</h4>
-                                    <pre><code class="language-python">
-# Vulnerable code (SQL Injection)
-def search_products(query):
-    cursor.execute("SELECT * FROM products WHERE name LIKE '%" + query + "%'")
-    return cursor.fetchall()
+    </nav>
 
-# Secure code (using parameterized queries)
-def search_products(query):
-    cursor.execute("SELECT * FROM products WHERE name LIKE %s", ('%' + query + '%',))
-    return cursor.fetchall()
-                                    </code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-expand-toggle">
-                            <button class="btn btn-sm">Read Full Case Study</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="project-card reveal" id="project2">
-                        <div class="project-header">
-                            <h3>Financial Institution API Security</h3>
-                            <span class="project-tag">API Security</span>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-description">
-                                <h4>Challenge</h4>
-                                <p>A financial services company was developing a new API for third-party integrations and needed to ensure it met the highest security standards.</p>
-                                
-                                <h4>Approach</h4>
-                                <p>We performed API security testing, focusing on authentication, authorization, and data validation mechanisms.</p>
-                                
-                                <h4>Findings</h4>
-                                <ul>
-                                    <li>Broken object level authorization</li>
-                                    <li>Excessive data exposure in responses</li>
-                                    <li>Rate limiting vulnerabilities</li>
-                                    <li>Insufficient logging of security events</li>
-                                </ul>
-                                
-                                <h4>Outcome</h4>
-                                <p>The client implemented all recommendations and successfully launched their API with robust security controls in place.</p>
-                                
-                                <div class="project-code">
-                                    <h4>Vulnerability Example (Remediated)</h4>
-                                    <pre><code class="language-javascript">
-// Vulnerable code (Excessive data exposure)
-app.get('/api/users/:id', (req, res) => {
-  const user = findUserById(req.params.id);
-  return res.json(user); // Returns all user data including sensitive fields
-});
-
-// Secure code (Data filtering)
-app.get('/api/users/:id', (req, res) => {
-  const user = findUserById(req.params.id);
-  
-  // Only return necessary fields
-  return res.json({
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    // Sensitive fields like password hash, full address, etc. are excluded
-  });
-});
-                                    </code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-expand-toggle">
-                            <button class="btn btn-sm">Read Full Case Study</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 3 -->
-                    <div class="project-card reveal" id="project3">
-                        <div class="project-header">
-                            <h3>Healthcare Application Assessment</h3>
-                            <span class="project-tag">Mobile & Web</span>
-                        </div>
-                        
-                        <div class="project-content">
-                            <div class="project-description">
-                                <h4>Challenge</h4>
-                                <p>A healthcare provider needed to ensure their patient portal and mobile application properly protected sensitive medical information.</p>
-                                
-                                <h4>Approach</h4>
-                                <p>We conducted a comprehensive security assessment of both web and mobile applications, focusing on data protection and compliance requirements.</p>
-                                
-                                <h4>Findings</h4>
-                                <ul>
-                                    <li>Insecure data storage on mobile devices</li>
-                                    <li>Inadequate session management</li>
-                                    <li>Missing encryption for sensitive data in transit</li>
-                                    <li>Insufficient access controls</li>
-                                </ul>
-                                
-                                <h4>Outcome</h4>
-                                <p>All identified issues were addressed, helping the client achieve regulatory compliance and protect patient data.</p>
-                                
-                                <div class="project-code">
-                                    <h4>Vulnerability Example (Remediated)</h4>
-                                    <pre><code class="language-java">
-// Vulnerable code (Insecure data storage)
-public void saveUserCredentials(String username, String password) {
-    SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
-    SharedPreferences.Editor editor = prefs.edit();
-    editor.putString("username", username);
-    editor.putString("password", password); // Storing password in plaintext
-    editor.apply();
-}
-
-// Secure code (Encrypted storage)
-public void saveUserCredentials(String username, String password) {
-    // Using Android Keystore for encryption
-    KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-    keyStore.load(null);
-    
-    // Generate and use encryption key to securely store credentials
-    SecretKey key = getOrCreateSecretKey();
-    byte[] encryptedPassword = encrypt(password.getBytes(), key);
-    
-    SharedPreferences prefs = getSharedPreferences("app_prefs", MODE_PRIVATE);
-    SharedPreferences.Editor editor = prefs.edit();
-    editor.putString("username", username);
-    editor.putString("enc_password", Base64.encodeToString(encryptedPassword, Base64.DEFAULT));
-    editor.apply();
-}
-                                    </code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-expand-toggle">
-                            <button class="btn btn-sm">Read Full Case Study</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-5">
-                    <a href="assets/documents/jo4-secure-sample-report.pdf" class="btn" download>Download Sample Security Report</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Tools & Certifications -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Tools & Certifications</h2>
-                
-                <div class="tools-section reveal">
-                    <h3>Tools & Technologies</h3>
-                    
-                    <div class="tools-grid">
-                        <div class="tool-badge" data-description="Professional Linux distribution for security and penetration testing">
-                            <img src="assets/images/secure/tools/kali.png" alt="Kali Linux">
-                            <span>Kali Linux</span>
-                        </div>
-                        <div class="tool-badge" data-description="Web vulnerability scanner and proxy for security testing">
-                            <img src="assets/images/secure/tools/burp.png" alt="Burp Suite">
-                            <span>Burp Suite</span>
-                        </div>
-                        <div class="tool-badge" data-description="Penetration testing framework for security exploitation">
-                            <img src="assets/images/secure/tools/metasploit.png" alt="Metasploit">
-                            <span>Metasploit</span>
-                        </div>
-                        <div class="tool-badge" data-description="Network scanning and discovery tool">
-                            <img src="assets/images/secure/tools/nmap.png" alt="Nmap">
-                            <span>Nmap</span>
-                        </div>
-                        <div class="tool-badge" data-description="Network protocol analyzer for packet inspection">
-                            <img src="assets/images/secure/tools/wireshark.png" alt="Wireshark">
-                            <span>Wireshark</span>
-                        </div>
-                        <div class="tool-badge" data-description="Open-source web application security scanner">
-                            <img src="assets/images/secure/tools/owasp.png" alt="OWASP ZAP">
-                            <span>OWASP ZAP</span>
-                        </div>
-                        <div class="tool-badge" data-description="Programming language for security automation">
-                            <img src="assets/images/secure/tools/python.png" alt="Python">
-                            <span>Python</span>
-                        </div>
-                        <div class="tool-badge" data-description="Static code analysis platform">
-                            <img src="assets/images/secure/tools/sonarqube.png" alt="SonarQube">
-                            <span>SonarQube</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="certifications-section mt-5 reveal">
-                    <h3>Certifications & Methodologies</h3>
-                    
-                    <div class="certifications-grid">
-                        <div class="certification-badge" data-description="EC-Council certification for ethical hacking skills">
-                            <img src="assets/images/secure/certifications/ceh.png" alt="Certified Ethical Hacker">
-                            <span>Certified Ethical Hacker (CEH)</span>
-                        </div>
-                        <div class="certification-badge" data-description="Rigorous hands-on penetration testing certification">
-                            <img src="assets/images/secure/certifications/oscp.png" alt="OSCP">
-                            <span>Offensive Security Certified Professional</span>
-                        </div>
-                        <div class="certification-badge" data-description="Web application security testing framework">
-                            <img src="assets/images/secure/certifications/owasp.png" alt="OWASP">
-                            <span>OWASP Testing Methodology</span>
-                        </div>
-                        <div class="certification-badge" data-description="US government security framework">
-                            <img src="assets/images/secure/certifications/nist.png" alt="NIST">
-                            <span>NIST Cybersecurity Framework</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Client Testimonials</h2>
-                
-                <div class="testimonials-slider">
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">"JO4 SECURE found critical vulnerabilities that our previous security vendor missed. Their detailed reports and remediation guidance were invaluable in strengthening our security posture."</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/secure/clients/client1.jpg" alt="David Thompson" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>David Thompson</strong>
-                                    <div>CTO, FinTech Solutions</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">"The security training JO4 provided to our development team was practical, engaging, and has significantly improved the security of our code. Highly recommended!"</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/secure/clients/client2.jpg" alt="Sarah Johnson" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>Sarah Johnson</strong>
-                                    <div>Lead Developer, TechCorp</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide reveal">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p class="testimonial-text">"Jonathan's expertise in API security helped us identify and fix vulnerabilities before our product launch. His attention to detail and clear communication made the process smooth and effective."</p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/secure/clients/client3.jpg" alt="Michael Chen" class="testimonial-avatar">
-                                <div class="testimonial-info">
-                                    <strong>Michael Chen</strong>
-                                    <div>Product Manager, API Solutions</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Navigation -->
-                <div class="testimonial-nav">
-                    <button class="testimonial-prev" aria-label="Previous testimonial">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="testimonial-next" aria-label="Next testimonial">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Contact Form -->
-        <section id="contact" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-3">Request a Security Assessment</h2>
-                <p class="text-center mb-5">Tell us about your security needs and we'll get back to you with a tailored proposal.</p>
-                
-                <div class="contact-form-container">
-                    <form id="security-contact-form" class="contact-form card">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="company">Company Name</label>
-                                    <input type="text" id="company" name="company" class="form-control" required>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service-type">Service Required</label>
-                            <select id="service-type" name="serviceType" class="form-control" required>
-                                <option value="">Select a service</option>
-                                <option value="penetration-testing">Penetration Testing</option>
-                                <option value="code-review">Secure Code Review</option>
-                                <option value="vulnerability-assessment">Vulnerability Assessment</option>
-                                <option value="security-training">Security Training</option>
-                                <option value="other">Other (please specify)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required placeholder="Please describe your project, security concerns, and any specific requirements."></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Approximate Budget</label>
-                            <select id="budget" name="budget" class="form-control">
-                                <option value="">Select a range</option>
-                                <option value="under-10k">Under R10,000</option>
-                                <option value="10k-25k">R10,000 - R25,000</option>
-                                <option value="25k-50k">R25,000 - R50,000</option>
-                                <option value="50k-100k">R50,000 - R100,000</option>
-                                <option value="over-100k">Over R100,000</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="timeline">Desired Timeline</label>
-                            <select id="timeline" name="timeline" class="form-control">
-                                <option value="">Select timeline</option>
-                                <option value="urgent">Urgent (ASAP)</option>
-                                <option value="1-2-weeks">1-2 weeks</option>
-                                <option value="2-4-weeks">2-4 weeks</option>
-                                <option value="1-2-months">1-2 months</option>
-                                <option value="flexible">Flexible</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Anti-spam honeypot field (hidden from users) -->
-                        <div class="form-group" style="display:none">
-                            <label for="honeypot">Leave this empty</label>
-                            <input type="text" id="honeypot" name="honeypot" autocomplete="off">
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn">Submit Request</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Security Resources -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Security Resources</h2>
-                
-                <div class="resources-grid">
-                    <div class="resource-card reveal">
-                        <div class="resource-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3>Security Blog</h3>
-                        <p>Stay updated with our latest articles on cybersecurity trends, vulnerabilities, and best practices.</p>
-                        <a href="#" class="btn btn-sm btn-outline">Read Articles</a>
-                    </div>
-                    
-                    <div class="resource-card reveal">
-                        <div class="resource-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3>Whitepapers</h3>
-                        <p>Download our in-depth technical whitepapers on various security topics.</p>
-                        <a href="#" class="btn btn-sm btn-outline">View Whitepapers</a>
-                    </div>
-                    
-                    <div class="resource-card reveal">
-                        <div class="resource-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Security Tools</h3>
-                        <p>Free security tools and scripts to help you improve your security posture.</p>
-                        <a href="#" class="btn btn-sm btn-outline">Access Tools</a>
-                    </div>
-                    
-                    <div class="resource-card reveal">
-                        <div class="resource-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h3>Security Checklists</h3>
-                        <p>Practical checklists to help you secure your applications and systems.</p>
-                        <a href="#" class="btn btn-sm btn-outline">Get Checklists</a>
-                    </div>
-                </div>
-                
-                <div class="newsletter-signup mt-5 text-center reveal">
-                    <h3>Subscribe to Security Updates</h3>
-                    <p>Receive alerts about critical vulnerabilities and security best practices.</p>
-                    
-                    <form id="security-newsletter-form" class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" name="email" placeholder="Your email address" required>
-                            <button type="submit" class="btn">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Emergency Response -->
-        <section class="section bg-danger emergency-section">
-            <div class="container">
-                <div class="emergency-content">
-                    <div class="emergency-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="emergency-text">
-                        <h3>Security Incident?</h3>
-                        <p>If you're experiencing an active security breach or incident, contact our emergency response team immediately.</p>
-                        <a href="tel:+27123456789" class="btn btn-white">Emergency Hotline: +27 12 345 6789</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Footer -->
-    <footer>
+    <!-- Security Hero Section -->
+    <section id="security-hero" class="hero security-hero">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JO4 SECURE</h3>
-                    <p>Professional cybersecurity services including penetration testing, code reviews, and security training.</p>
-                    <p class="mt-3">
-                        <strong>Last Updated:</strong> <span class="last-updated">2025-08-26 21:49:32</span><br>
-                        <strong>© JO4 SECURE</strong> - All rights reserved
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Welcome to</span>
+                        <span class="name">JO4 <span class="code-text">Security</span></span>
+                        <span class="role">Protecting Your Digital Assets</span>
+                    </h1>
+                    <p class="hero-description">
+                        Professional cybersecurity services designed to identify vulnerabilities, strengthen defenses, and safeguard your critical systems against evolving threats.
                     </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:secure@jo4.co.za">secure@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
-                    <div class="social-icons mt-3">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/JRoetscyber" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <div class="hero-cta">
+                        <a href="#services" class="btn btn-primary" title="View Security Services">
+                            <span>Our Services</span>
+                            <i class="fas fa-shield-alt"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary" title="Contact JO4 Security">
+                            <span>Get a Consultation</span>
+                        </a>
                     </div>
+                </div>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="terminal-container" style="width: 100%; max-width: 500px;">
+                        <div class="terminal-header">
+                            <div class="terminal-dot dot-red"></div>
+                            <div class="terminal-dot dot-yellow"></div>
+                            <div class="terminal-dot dot-green"></div>
+                            <div class="terminal-title">security-scan.sh</div>
+                        </div>
+                        <div class="terminal-content">
+                            <p>
+                                <span class="terminal-prompt">jo4@security:~$</span> 
+                                <span class="terminal-command">./security-scan.sh --target example.com</span>
+                            </p>
+                            <p class="terminal-output">
+                                [+] Initializing security scan...<br>
+                                [+] Checking for vulnerabilities...<br>
+                                [!] <span class="terminal-warning">WARNING: 3 potential vulnerabilities detected</span><br>
+                                [+] Generating security report...<br>
+                                [+] <span class="terminal-success">Scan complete. Security report ready.</span><br>
+                                <span class="terminal-prompt">jo4@security:~$</span> <span class="blink">_</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Stats Section -->
+    <section id="security-stats" class="security-stats-section">
+        <div class="container">
+            <div class="security-stats">
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">94%</div>
+                    <p>Of data breaches are preventable with proper security measures</p>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">$4.35M</div>
+                    <p>Average cost of a data breach in 2023</p>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">280</div>
+                    <p>Days average time to identify and contain a breach</p>
+                </div>
+                
+                <div class="stat-item animate-on-scroll">
+                    <div class="stat-number">100%</div>
+                    <p>Client satisfaction with our security services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our <span class="code-text">Services</span></h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Comprehensive cybersecurity solutions to protect your organization from evolving threats
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Penetration Testing -->
+                <div class="project-card service-card animate-on-scroll" data-category="service">
+                    <div class="project-img">
+                        <img src="assets/images/penetration-testing.jpg" alt="Penetration Testing Service">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="contact.html" class="project-link" aria-label="Request Penetration Testing"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Security Assessment</span>
+                            <span class="project-tag">Ethical Hacking</span>
+                        </div>
+                        <h3 class="project-title"><i class="fas fa-user-secret"></i> Penetration Testing</h3>
+                        <p class="project-description">
+                            Simulate real-world attacks to identify vulnerabilities in your systems before malicious actors can exploit them. Our thorough approach tests your defenses from multiple angles.
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Web Application Testing</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Network Infrastructure Testing</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Cloud Security Assessment</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Detailed Reporting & Remediation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Vulnerability Assessment -->
+                <div class="project-card service-card animate-on-scroll" data-category="service">
+                    <div class="project-img">
+                        <img src="assets/images/vulnerability-assessment.jpg" alt="Vulnerability Assessment Service">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="contact.html" class="project-link" aria-label="Request Vulnerability Assessment"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Threat Detection</span>
+                            <span class="project-tag">Risk Analysis</span>
+                        </div>
+                        <h3 class="project-title"><i class="fas fa-search"></i> Vulnerability Assessment</h3>
+                        <p class="project-description">
+                            Comprehensive evaluation of your systems to identify security weaknesses, assess their severity, and provide actionable remediation recommendations to improve your security posture.
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> System & Network Scanning</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Vulnerability Prioritization</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Security Configuration Review</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Compliance Verification</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Security Consulting -->
+                <div class="project-card service-card animate-on-scroll" data-category="service">
+                    <div class="project-img">
+                        <img src="assets/images/security-consulting.jpg" alt="Security Consulting Service">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="contact.html" class="project-link" aria-label="Request Security Consulting"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Expert Guidance</span>
+                            <span class="project-tag">Strategic Planning</span>
+                        </div>
+                        <h3 class="project-title"><i class="fas fa-comments"></i> Security Consulting</h3>
+                        <p class="project-description">
+                            Expert guidance to help your organization develop and implement effective security strategies, policies, and procedures tailored to your specific needs and risks.
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Security Program Development</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Risk Assessment & Management</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Security Policy Creation</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Compliance & Regulatory Guidance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Security Training -->
+                <div class="project-card service-card animate-on-scroll" data-category="service">
+                    <div class="project-img">
+                        <img src="assets/images/security-training.jpg" alt="Security Training Service">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="contact.html" class="project-link" aria-label="Request Security Training"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Awareness</span>
+                            <span class="project-tag">Skill Development</span>
+                        </div>
+                        <h3 class="project-title"><i class="fas fa-graduation-cap"></i> Security Training</h3>
+                        <p class="project-description">
+                            Empower your team with the knowledge and skills to recognize and respond effectively to security threats through customized training programs and awareness initiatives.
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Security Awareness Training</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Phishing Simulations</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Secure Coding Practices</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-primary); margin-right: 0.5rem;"></i> Incident Response Training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Process Section -->
+    <section id="process" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our <span class="code-text">Process</span></h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    A systematic approach to identifying, analyzing, and addressing security challenges
+                </p>
+            </div>
+            
+            <div class="security-process">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Initial Consultation & Scoping</h3>
+                        <p>
+                            We begin with a thorough discussion to understand your organization, systems, and specific security concerns. This allows us to define the scope of work and develop a tailored approach to address your needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Assessment & Testing</h3>
+                        <p>
+                            Our security experts conduct comprehensive assessments and testing using industry-standard methodologies and proprietary tools to identify vulnerabilities, weaknesses, and potential risks in your systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Analysis & Reporting</h3>
+                        <p>
+                            We analyze our findings to prioritize vulnerabilities based on risk level and potential impact. Our detailed reports include clear explanations of issues discovered, potential consequences, and specific recommendations.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Remediation Guidance</h3>
+                        <p>
+                            We provide expert guidance on addressing identified vulnerabilities, helping your team implement effective solutions to strengthen your security posture and reduce risk.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Follow-up & Verification</h3>
+                        <p>
+                            After remediation efforts, we conduct follow-up testing to verify that vulnerabilities have been properly addressed and provide ongoing support to maintain your enhanced security posture.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies & Tools Section -->
+    <section id="technologies" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our <span class="code-text">Tech Stack</span></h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Advanced tools and technologies we leverage for effective security assessments
+                </p>
+            </div>
+            
+            <div class="hexagon-grid">
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Network Analysis</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-bug"></i>
+                    <span>Vulnerability Scanning</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-user-secret"></i>
+                    <span>Penetration Testing</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-code"></i>
+                    <span>Code Review</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Threat Modeling</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-cloud"></i>
+                    <span>Cloud Security</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Security</span>
+                </div>
+                <div class="hexagon animate-on-scroll">
+                    <i class="fas fa-sitemap"></i>
+                    <span>Infrastructure Assessment</span>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="security-tools animate-on-scroll">
+                <div class="tool-item">Nmap</div>
+                <div class="tool-item">Metasploit</div>
+                <div class="tool-item">Burp Suite</div>
+                <div class="tool-item">Wireshark</div>
+                <div class="tool-item">OWASP ZAP</div>
+                <div class="tool-item">Aircrack-ng</div>
+                <div class="tool-item">Kali Linux</div>
+                <div class="tool-item">Nessus</div>
+                <div class="tool-item">Acunetix</div>
+                <div class="tool-item">John the Ripper</div>
+                <div class="tool-item">Hashcat</div>
+                <div class="tool-item">OpenVAS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terminal Demo Section -->
+    <section id="terminal-demo" class="terminal-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll" style="color: white;">Security <span class="code-text">in Action</span></h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll" style="color: #ccc;">
+                    See how our security tools identify and analyze potential vulnerabilities
+                </p>
+            </div>
+            
+            <div class="terminal-container animate-on-scroll">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                    <div class="terminal-title">vulnerability-assessment.sh</div>
+                </div>
+                <div class="terminal-content">
+                    <p>
+                        <span class="terminal-prompt">jo4@security:~$</span> 
+                        <span class="terminal-command">sudo nmap -sV -sC -p- --script vuln 192.168.1.100</span>
+                    </p>
+                    <p class="terminal-output">
+                        Starting Nmap 7.94 ( https://nmap.org ) at 2025-09-01 14:48:54 UTC<br>
+                        Nmap scan report for 192.168.1.100<br>
+                        Host is up (0.025s latency).<br>
+                        Not shown: 65528 closed tcp ports (reset)<br>
+                        PORT     STATE SERVICE     VERSION<br>
+                        22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.5<br>
+                        80/tcp   open  http        Apache httpd 2.4.41<br>
+                        | http-csrf: <br>
+                        | Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.100<br>
+                        |   <span class="terminal-warning">Found the following possible CSRF vulnerabilities:</span><br>
+                        |     <br>
+                        |     Path: /login.php<br>
+                        |     Form id: login-form<br>
+                        |     Form action: /process.php<br>
+                        443/tcp  open  https       Apache httpd 2.4.41<br>
+                        | ssl-heartbleed: <br>
+                        |   <span class="terminal-success">SAFE - No heartbleed vulnerability detected</span><br>
+                        3306/tcp open  mysql       MySQL 8.0.32-0ubuntu0.22.04.2<br>
+                        <br>
+                        Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br>
+                        Nmap done: 1 IP address (1 host) scanned in 25.37 seconds<br>
+                        <span class="terminal-prompt">jo4@security:~$</span> <span class="terminal-command">./generate-report.sh --target 192.168.1.100 --output security-report.pdf</span><br>
+                        <span class="terminal-success">[+] Analyzing results...</span><br>
+                        <span class="terminal-success">[+] Generating recommendations...</span><br>
+                        <span class="terminal-success">[+] Report successfully generated: security-report.pdf</span><br>
+                        <span class="terminal-prompt">jo4@security:~$</span> <span class="blink">_</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Client <span class="code-text">Feedback</span></h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    What our clients say about our security services
+                </p>
+            </div>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline active">
+                    <!-- Testimonial 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Financial Services</div>
+                        <div class="timeline-content">
+                            <h3>"Thorough Security Assessment"</h3>
+                            <h4>David Richards, CIO</h4>
+                            <p class="timeline-description">
+                                JO4 Security's penetration testing identified critical vulnerabilities that other firms had missed. Their detailed reports and remediation guidance helped us strengthen our security posture significantly.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Penetration Testing</span>
+                                <span class="timeline-tag">Vulnerability Assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Corporate Training</div>
+                        <div class="timeline-content">
+                            <h3>"Transformative Security Training"</h3>
+                            <h4>Sarah Johnson, HR Director</h4>
+                            <p class="timeline-description">
+                                The security training provided by JO4 transformed our team's awareness and approach to cybersecurity. Their practical, hands-on workshops made complex security concepts accessible to everyone.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Security Training</span>
+                                <span class="timeline-tag">Awareness Program</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Healthcare Technology</div>
+                        <div class="timeline-content">
+                            <h3>"Comprehensive Compliance Support"</h3>
+                            <h4>Michael Thompson, Compliance Officer</h4>
+                            <p class="timeline-description">
+                                Working with JO4 Security on our compliance requirements was a game-changer. Their expertise helped us navigate complex regulatory frameworks while strengthening our overall security posture.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Compliance</span>
+                                <span class="timeline-tag">Security Assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Ready to Secure Your Systems?</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Protect Your Business</h3>
+                    <p class="contact-description">
+                        Contact us today for a consultation and discover how JO4 Security can help protect your organization from evolving cyber threats.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nigel, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn btn-primary">Get a Security Assessment</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" value="Security Assessment Request" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span class="submit-text">Send Message</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>JO4 Security</h3>
+                    <p>Protecting Your Digital Assets</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4 Security. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 14:48:54 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="assets/js/form-handler.js"></script>
-    <script src="assets/js/secure.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-java.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

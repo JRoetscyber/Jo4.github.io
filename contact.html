@@ -1,410 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Jonathan Roets (JO4) — Cybersecurity, Mobile Coffee & Real Estate</title>
-    <meta name="description" content="Get in touch with Jonathan Roets (JO4) for cybersecurity consulting, mobile coffee services, or real estate inquiries.">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Contact Jonathan Roets (JO4)">
-    <meta property="og:description" content="Get in touch for cybersecurity consulting, mobile coffee services, or real estate inquiries.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/jo4-contact-social.jpg">
-    <meta property="og:url" content="https://jo4.co.za/contact">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>Contact JO4 | Security, Brew & Real Estate Services</title>
+    <meta name="description" content="Get in touch with JO4 for cybersecurity, mobile coffee, and real estate services. Professional solutions tailored to your needs in South Africa.">
+    <meta name="keywords" content="contact JO4, cybersecurity services, coffee business, real estate services, Jonathan Roets, South Africa">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/contact.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="secure.html">JO4 SECURE</a></li>
-                    <li><a href="brew.html">JO4 Brew</a></li>
-                    <li><a href="realestate.html">Real Estate</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero contact-hero" style="background-image: url('assets/images/hero/contact-hero.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Get in Touch</h1>
-                    <p>Let's discuss how I can help with your cybersecurity, coffee, or real estate needs.</p>
+    </nav>
+
+    <!-- Contact Hero Section -->
+    <section id="contact-hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Get In Touch</span>
+                        <span class="name">Contact JO4</span>
+                        <span class="role">We'd Love to Hear from You</span>
+                    </h1>
+                    <p class="hero-description">
+                        Whether you need cybersecurity expertise, premium coffee for your event, or help finding your perfect property, we're here to assist you.
+                    </p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Contact Methods Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">How Can I Help You?</h2>
-                
-                <div class="contact-methods">
-                    <!-- Cybersecurity Contact -->
-                    <div class="contact-method-card reveal">
-                        <div class="method-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>JO4 SECURE</h3>
-                        <p>For cybersecurity consulting, penetration testing, code reviews, and security training.</p>
-                        <div class="contact-method-details">
-                            <div><i class="fas fa-envelope"></i> <a href="mailto:secure@jo4.co.za">secure@jo4.co.za</a></div>
-                            <div><i class="fas fa-phone"></i> <a href="tel:+27123456781">+27 12 345 6781</a></div>
-                        </div>
-                        <a href="#contact-form" class="btn btn-outline">Request Security Services</a>
-                    </div>
-                    
-                    <!-- Coffee Contact -->
-                    <div class="contact-method-card reveal">
-                        <div class="method-icon">
-                            <i class="fas fa-coffee"></i>
-                        </div>
-                        <h3>JO4 Brew</h3>
-                        <p>For mobile coffee services at markets, weddings, corporate events, and private functions.</p>
-                        <div class="contact-method-details">
-                            <div><i class="fas fa-envelope"></i> <a href="mailto:brew@jo4.co.za">brew@jo4.co.za</a></div>
-                            <div><i class="fas fa-phone"></i> <a href="tel:+27123456782">+27 12 345 6782</a></div>
-                        </div>
-                        <a href="#contact-form" class="btn btn-outline">Book Coffee Services</a>
-                    </div>
-                    
-                    <!-- Real Estate Contact -->
-                    <div class="contact-method-card reveal">
-                        <div class="method-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>JO4 Real Estate</h3>
-                        <p>For property buying, selling, and rental services in the Cape Town area.</p>
-                        <div class="contact-method-details">
-                            <div><i class="fas fa-envelope"></i> <a href="mailto:property@jo4.co.za">property@jo4.co.za</a></div>
-                            <div><i class="fas fa-phone"></i> <a href="tel:+27123456783">+27 12 345 6783</a></div>
-                        </div>
-                        <a href="#contact-form" class="btn btn-outline">Property Inquiry</a>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="hero-img-container morph-animation">
+                        <img src="assets/images/contact.jpg" alt="Contact JO4" class="profile-image">
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact Form Section -->
-        <section id="contact-form" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-3">Send a Message</h2>
-                <p class="text-center mb-5">Fill out the form below and I'll get back to you as soon as possible.</p>
-                
-                <div class="contact-form-container">
-                    <form id="contact-form" class="contact-form card">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form-section" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Contact Us</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="animate-on-scroll">Reach out to discuss how we can help with your security, coffee, or real estate needs</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Get In Touch</h3>
+                    <p class="contact-description">
+                        Have questions about our services or want to discuss a potential project? Contact us using the information below or fill out the form to send us a message.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
                             </div>
                         </div>
                         
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" class="form-control">
-                                </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
                             </div>
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="subject">Subject</label>
-                                    <select id="subject" name="subject" class="form-control" required>
-                                        <option value="">Select subject</option>
-                                        <option value="security">Cybersecurity Services</option>
-                                        <option value="coffee">Coffee Services</option>
-                                        <option value="realestate">Real Estate Inquiry</option>
-                                        <option value="general">General Inquiry</option>
-                                    </select>
-                                </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
                             </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nigel, South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p>Saturday: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h4>Connect With Us</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/27826102440" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="Security">Security Services</option>
+                                <option value="Brew">Coffee Services</option>
+                                <option value="Real Estate">Real Estate Services</option>
+                                <option value="General">General Inquiry</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
                         </div>
                         
-                        <!-- Anti-spam honeypot field (hidden from users) -->
-                        <div class="form-group" style="display:none">
-                            <label for="honeypot">Leave this empty</label>
-                            <input type="text" id="honeypot" name="honeypot" autocomplete="off">
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="submit" class="btn">Send Message</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span class="submit-text">Send Message</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
                     </form>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Map Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Find Me</h2>
-                
-                <div class="map-wrapper" data-full-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.4355677006!2d18.348369511978357!3d-33.9248685033522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc500f8826eed7%3A0x687fe1fc2828aa87!2sCape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1692755614409!5m2!1sen!2sus">
-                    <iframe src="about:blank" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.4355677006!2d18.348369511978357!3d-33.9248685033522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc500f8826eed7%3A0x687fe1fc2828aa87!2sCape%20Town%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1692755614409!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <div class="location-details mt-4 text-center">
-                    <p><i class="fas fa-map-marker-alt"></i> Cape Town, South Africa</p>
-                    <p><i class="fas fa-coffee"></i> JO4 Brew is mobile throughout the Western Cape</p>
-                    <p><i class="fas fa-laptop"></i> Remote cybersecurity services available worldwide</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- FAQ Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Frequently Asked Questions</h2>
-                
-                <div class="faq-container">
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <h3>What areas do you cover for coffee services?</h3>
-                            <div class="faq-toggle">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>JO4 Brew serves the greater Cape Town area and surrounding regions including Stellenbosch, Franschhoek, Paarl, and Somerset West. For locations further afield, additional travel fees may apply.</p>
-                        </div>
-                    </div>
                     
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <h3>Do you offer remote cybersecurity consulting?</h3>
-                            <div class="faq-toggle">
-                                <i class="fas fa-plus"></i>
-                            </div>
+                    <div id="formSuccess" class="form-success">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <div class="faq-answer">
-                            <p>Yes, JO4 SECURE offers remote cybersecurity consulting, penetration testing, and code reviews for clients worldwide. We use secure communication channels and can work with your team across different time zones.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <h3>What real estate services do you provide?</h3>
-                            <div class="faq-toggle">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>As a certified property practitioner, I offer comprehensive real estate services including property sales, purchases, rentals, and valuations. I specialize in residential properties in the Cape Town area and work in partnership with Larney Properties.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <h3>How far in advance should I book coffee services for my event?</h3>
-                            <div class="faq-toggle">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>For weddings and large events, I recommend booking 3-6 months in advance as dates fill up quickly, especially during the peak season (October-April). For smaller events, 4-6 weeks notice is typically sufficient, but earlier is always better to ensure availability.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item reveal">
-                        <div class="faq-question">
-                            <h3>What is your typical response time?</h3>
-                            <div class="faq-toggle">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>I aim to respond to all inquiries within 24 hours during business days. For urgent security matters, please use the emergency contact number provided in the security services section.</p>
-                        </div>
+                        <h3>Message Sent Successfully!</h3>
+                        <p>Thank you for contacting JO4. We'll get back to you soon regarding your inquiry.</p>
+                        <button class="btn btn-primary" onclick="resetForm()">Send Another Message</button>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Social Connect Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title text-center mb-5">Connect With Me</h2>
-                
-                <div class="social-media text-center">
-                    <a href="#" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="#" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter</span>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-                </div>
-                
-                <div class="newsletter-signup mt-5 text-center reveal">
-                    <h3>Subscribe to My Newsletter</h3>
-                    <p>Stay updated with cybersecurity tips, coffee events, and real estate insights.</p>
-                    
-                    <form id="newsletter-form" class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" name="email" placeholder="Your email address" required>
-                            <button type="submit" class="btn">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Find Us</h2>
+                <div class="section-line animate-on-scroll"></div>
             </div>
-        </section>
-        
-        <!-- Emergency Contact -->
-        <section class="emergency-contact">
-            <div class="container">
-                <div class="emergency-content">
-                    <i class="fas fa-exclamation-circle"></i>
-                    <div>
-                        <h3>Security Emergency?</h3>
-                        <p>For urgent cybersecurity incidents requiring immediate response:</p>
-                        <a href="tel:+27123456789" class="emergency-phone">+27 12 345 6789</a>
-                    </div>
-                </div>
+            
+            <div class="map-container animate-on-scroll">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114482.53411481121!2d28.370019391386876!3d-26.428532541162087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9522d4a4006c85%3A0xdfad47e98ecb0a72!2sNigel%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1630509684843!5m2!1sen!2sus" 
+                        width="100%" height="450" style="border:0; border-radius: var(--border-radius);" 
+                        allowfullscreen="" loading="lazy" title="JO4 Location Map">
+                </iframe>
             </div>
-        </section>
-    </main>
-    
-    <!-- WhatsApp Quick Contact Button -->
-    <a href="https://wa.me/27123456789?text=Hi%20Jonathan,%20I'm%20reaching%20out%20from%20your%20website." class="whatsapp-button" aria-label="Contact via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-logo">
                     <h3>JO4</h3>
-                    <p>Cybersecurity consulting, event coffee services, and professional real-estate services.</p>
+                    <p>Security • Brew • Real Estate</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="secure.html">JO4 SECURE</a></li>
-                        <li><a href="brew.html">JO4 Brew</a></li>
-                        <li><a href="realestate.html">Real Estate</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:contact@jo4.co.za">contact@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/JRoetscyber" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Last updated: <span class="last-updated">2025-08-26 21:47:42</span> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 14:48:54 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="assets/js/form-handler.js"></script>
-    <script src="assets/js/contact.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

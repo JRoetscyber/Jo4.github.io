@@ -1,705 +1,827 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JO4 Brew — Mobile Coffee for Night Markets, Weddings & Events</title>
-    <meta name="description" content="JO4 Brew provides mobile coffee services for night markets, weddings, and events throughout South Africa. Book our coffee trailer today!">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="JO4 Brew — Mobile Coffee for Events">
-    <meta property="og:description" content="Premium mobile coffee services for night markets, weddings, and events throughout South Africa.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/brew/trailer-social.jpg">
-    <meta property="og:url" content="https://jo4.co.za/brew">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>JO4 Brew | Mobile Coffee Shop & Event Services</title>
+    <meta name="description" content="Premium mobile coffee services for events, markets, and special occasions. Ethically sourced beans and expert brewing techniques for the perfect cup.">
+    <meta name="keywords" content="mobile coffee shop, coffee catering, event coffee service, premium coffee, South Africa coffee, ethically sourced coffee">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/brew.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* JO4 Brew specific styles */
+        :root {
+            --brew-primary: #9B1C2D;
+            --brew-secondary: #C53030;
+            --brew-accent: #A1866F;
+            --brew-light: #D4B8A5;
+            --brew-bg-light: #FDF8F5;
+            --brew-bg-dark: #1F1F1F;
+        }
+        
+        .brew-hero {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(155,28,45,0.9) 0%, rgba(197,48,48,0.8) 100%), url('assets/images/coffee-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .brew-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--brew-primary) 0%, transparent 100%);
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .brew-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .coffee-btn {
+            background: linear-gradient(135deg, var(--brew-primary) 0%, var(--brew-secondary) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(155, 28, 45, 0.4);
+        }
+        
+        .coffee-btn:hover,
+        .coffee-btn:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(155, 28, 45, 0.5);
+            color: white;
+        }
+        
+        .coffee-btn-outline {
+            background: transparent;
+            border: 2px solid var(--brew-primary);
+            color: var(--brew-primary);
+        }
+        
+        .coffee-btn-outline:hover,
+        .coffee-btn-outline:focus {
+            background: var(--brew-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .coffee-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .coffee-item {
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-left: 4px solid var(--brew-primary);
+            padding: 1.5rem;
+        }
+        
+        .coffee-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-left-width: 8px;
+        }
+        
+        .coffee-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--brew-primary);
+        }
+        
+        .coffee-price {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--brew-primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .coffee-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .coffee-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+        
+        .coffee-feature {
+            background: rgba(155, 28, 45, 0.1);
+            color: var(--brew-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .coffee-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--brew-primary) 0%, var(--brew-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(155, 28, 45, 0.3);
+        }
+        
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--brew-primary);
+        }
+        
+        .testimonial-wrapper {
+            position: relative;
+            margin-top: 3rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(155,28,45,0.05) 0%, rgba(197,48,48,0.1) 100%);
+            border-radius: var(--border-radius);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            text-align: center;
+            font-weight: 600;
+            color: var(--brew-primary);
+        }
+        
+        .coffee-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(155,28,45,0.9) 0%, transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            color: white;
+            font-weight: 600;
+        }
+    </style>
 </head>
-<body class="brew-page" data-theme="dark">
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="secure.html">JO4 SECURE</a></li>
-                    <li><a href="brew.html" class="active">JO4 Brew</a></li>
-                    <li><a href="realestate.html">Real Estate</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero brew-hero" style="background-image: url('assets/images/brew/trailer-hero.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>JO4 Brew</h1>
-                    <p>Mobile coffee for night markets, weddings & events.</p>
-                    <div class="hero-cta">
-                        <a href="#booking" class="btn">Book JO4 Brew</a>
-                        <a href="#menu" class="btn btn-outline">View Menu</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- About Brew Section -->
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 reveal">
-                        <h2>Specialty Coffee, <br>Wherever You Need It</h2>
-                        <p>JO4 Brew brings the café experience to your event with our fully equipped mobile coffee trailer. From corporate functions to weddings and markets, we deliver premium coffee and exceptional service.</p>
-                        <p>Our skilled baristas craft delicious espresso-based drinks using locally roasted beans, ensuring your guests enjoy the perfect cup every time.</p>
-                    </div>
-                    <div class="col-md-6 reveal">
-                        <img src="assets/images/brew/coffee-pour.jpg" alt="Barista pouring coffee" class="rounded img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Menu Section -->
-        <section id="menu" class="section bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Our Menu</h2>
-                
-                <div class="row">
-                    <!-- Espresso Menu -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card menu-card">
-                            <h3>Espresso Classics</h3>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Espresso</div>
-                                    <div class="coffee-description">Double shot, rich & bold</div>
-                                </div>
-                                <div class="coffee-price">R25</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Americano</div>
-                                    <div class="coffee-description">Espresso with hot water</div>
-                                </div>
-                                <div class="coffee-price">R30</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Cappuccino</div>
-                                    <div class="coffee-description">Equal parts espresso, steamed milk & foam</div>
-                                </div>
-                                <div class="coffee-price">R35</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Flat White</div>
-                                    <div class="coffee-description">Double espresso with silky steamed milk</div>
-                                </div>
-                                <div class="coffee-price">R35</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Caffè Latte</div>
-                                    <div class="coffee-description">Espresso with lots of steamed milk</div>
-                                </div>
-                                <div class="coffee-price">R38</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Specialty Menu -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card menu-card">
-                            <h3>Specialty Drinks</h3>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Mocha</div>
-                                    <div class="coffee-description">Espresso, chocolate & steamed milk</div>
-                                </div>
-                                <div class="coffee-price">R40</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Caramel Macchiato</div>
-                                    <div class="coffee-description">Vanilla, steamed milk, espresso & caramel</div>
-                                </div>
-                                <div class="coffee-price">R42</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Vanilla Latte</div>
-                                    <div class="coffee-description">Espresso, vanilla syrup & steamed milk</div>
-                                </div>
-                                <div class="coffee-price">R40</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Hazelnut Dream</div>
-                                    <div class="coffee-description">Espresso, hazelnut syrup & steamed milk</div>
-                                </div>
-                                <div class="coffee-price">R42</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Seasonal Special</div>
-                                    <div class="coffee-description">Ask about our current seasonal creation</div>
-                                </div>
-                                <div class="coffee-price">R45</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Cold Drinks Menu -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card menu-card">
-                            <h3>Cold Drinks</h3>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Iced Americano</div>
-                                    <div class="coffee-description">Double espresso over ice & cold water</div>
-                                </div>
-                                <div class="coffee-price">R32</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Iced Latte</div>
-                                    <div class="coffee-description">Espresso, cold milk & ice</div>
-                                </div>
-                                <div class="coffee-price">R38</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Cold Brew</div>
-                                    <div class="coffee-description">Slow-steeped for 12 hours</div>
-                                </div>
-                                <div class="coffee-price">R35</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Frappe</div>
-                                    <div class="coffee-description">Blended espresso, milk & ice</div>
-                                </div>
-                                <div class="coffee-price">R45</div>
-                            </div>
-                            
-                            <div class="coffee-item">
-                                <div>
-                                    <div class="coffee-name">Iced Tea</div>
-                                    <div class="coffee-description">Freshly brewed & chilled</div>
-                                </div>
-                                <div class="coffee-price">R30</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-5">
-                    <a href="assets/documents/jo4-brew-menu.pdf" class="btn" download>Download Full Menu (PDF)</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Packages Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center mb-5">Event Packages</h2>
-                
-                <div class="row">
-                    <!-- Basic Package -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card package-card" data-package="basic">
-                            <h3>Basic Package</h3>
-                            <div class="package-price mb-3">R3,500</div>
-                            <p>Perfect for small gatherings and informal events.</p>
-                            <ul class="mt-3 mb-4">
-                                <li>Up to 50 drinks</li>
-                                <li>3 hours of service</li>
-                                <li>Standard coffee menu</li>
-                                <li>1 barista</li>
-                                <li>Basic cups & supplies</li>
-                            </ul>
-                            <button class="btn btn-outline w-100">Select Package</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Premium Package -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card package-card" data-package="premium">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-3">Popular</span>
-                            <h3>Premium Package</h3>
-                            <div class="package-price mb-3">R6,500</div>
-                            <p>Ideal for corporate events and medium-sized gatherings.</p>
-                            <ul class="mt-3 mb-4">
-                                <li>Up to 100 drinks</li>
-                                <li>5 hours of service</li>
-                                <li>Full coffee menu + specialty drinks</li>
-                                <li>2 baristas</li>
-                                <li>Premium cups & branded sleeves</li>
-                                <li>Coffee station setup</li>
-                            </ul>
-                            <button class="btn w-100">Select Package</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Wedding Package -->
-                    <div class="col-md-4 mb-4 reveal">
-                        <div class="card package-card" data-package="wedding">
-                            <h3>Wedding Package</h3>
-                            <div class="package-price mb-3">R8,500</div>
-                            <p>The complete coffee experience for your special day.</p>
-                            <ul class="mt-3 mb-4">
-                                <li>Unlimited drinks for up to 150 guests</li>
-                                <li>6 hours of service</li>
-                                <li>Full menu + custom signature drink</li>
-                                <li>2 professional baristas</li>
-                                <li>Premium branded cups</li>
-                                <li>Decorative coffee station</li>
-                                <li>Pre-event consultation</li>
-                            </ul>
-                            <button class="btn btn-outline w-100">Select Package</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <p>Custom packages available for larger events. <a href="#booking">Contact us</a> for details.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Gallery Section -->
-        <section class="section bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Our Events</h2>
-                
-                <div class="brew-gallery">
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event1.jpg" alt="Cape Town Food Market">
-                        <div class="gallery-overlay">
-                            <h4>Cape Town Food Market</h4>
-                            <p>Monthly event at the V&A Waterfront</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event2.jpg" alt="Corporate Function">
-                        <div class="gallery-overlay">
-                            <h4>Tech Conference</h4>
-                            <p>Serving 200+ attendees at TechCon 2025</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event3.jpg" alt="Beach Wedding">
-                        <div class="gallery-overlay">
-                            <h4>Beach Wedding</h4>
-                            <p>Sunset ceremony coffee service</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event4.jpg" alt="Farmers Market">
-                        <div class="gallery-overlay">
-                            <h4>Stellenbosch Farmers Market</h4>
-                            <p>Weekly Saturday morning service</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event5.jpg" alt="Corporate Event">
-                        <div class="gallery-overlay">
-                            <h4>Company Year-End</h4>
-                            <p>Executive coffee service</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item reveal">
-                        <img src="assets/images/brew/event6.jpg" alt="Garden Wedding">
-                        <div class="gallery-overlay">
-                            <h4>Garden Wedding</h4>
-                            <p>Post-ceremony refreshments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials Section -->
-        <section class="section">
-            <div class="container">
-                <h2 class="text-center mb-5">What Our Clients Say</h2>
-                
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card testimonial reveal">
-                            <div class="testimonial-stars mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"JO4 Brew was the highlight of our wedding! Guests couldn't stop raving about the coffee and the trailer looked amazing in our photos."</p>
-                            <div class="testimonial-author mt-3">
-                                <strong>Sarah & Michael</strong>
-                                <div>Wedding in Franschhoek</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4 mb-4">
-                        <div class="card testimonial reveal">
-                            <div class="testimonial-stars mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="testimonial-text">"We hired JO4 Brew for our company's annual conference. The service was professional, efficient, and the coffee was exceptional. Will definitely book again!"</p>
-                            <div class="testimonial-author mt-3">
-                                <strong>David Thompson</strong>
-                                <div>Event Coordinator, TechSA</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4 mb-4">
-                        <div class="card testimonial reveal">
-                            <div class="testimonial-stars mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <p class="testimonial-text">"JO4 Brew has become a staple at our monthly market. The trailer always attracts a crowd, and Jonathan's barista skills are top-notch. Highly recommended!"</p>
-                            <div class="testimonial-author mt-3">
-                                <strong>Anita Malan</strong>
-                                <div>Market Organizer, Cape Food Collective</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Booking Section -->
-        <section id="booking" class="section bg-light">
-            <div class="container">
-                <h2 class="text-center mb-3">Book JO4 Brew for Your Event</h2>
-                <p class="text-center mb-5">Tell us about your event and we'll bring the coffee experience to you.</p>
-                
-                <div class="booking-form-container">
-                    <!-- Booking Progress Indicator -->
-                    <div class="booking-progress mb-4">
-                        <div class="progress-step active">
-                            <div class="step-number">1</div>
-                            <div class="step-label">Date</div>
-                        </div>
-                        <div class="progress-step">
-                            <div class="step-number">2</div>
-                            <div class="step-label">Package</div>
-                        </div>
-                        <div class="progress-step">
-                            <div class="step-number">3</div>
-                            <div class="step-label">Details</div>
-                        </div>
-                        <div class="progress-step">
-                            <div class="step-number">4</div>
-                            <div class="step-label">Confirm</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Booking Form -->
-                    <form id="booking-form" class="card">
-                        <!-- Step 1: Date Selection -->
-                        <div class="form-step" id="date-step">
-                            <h3>Select Event Date</h3>
-                            
-                            <div class="calendar-container mt-4">
-                                <div class="calendar-header">
-                                    <button type="button" id="prev-month" class="btn-icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </button>
-                                    <h4 id="calendar-month-year">August 2025</h4>
-                                    <button type="button" id="next-month" class="btn-icon">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                
-                                <div id="calendar-grid" class="calendar-grid">
-                                    <!-- Calendar will be generated by JS -->
-                                </div>
-                            </div>
-                            
-                            <input type="hidden" id="booking-date" name="bookingDate" required>
-                            
-                            <div class="form-actions mt-4">
-                                <button type="button" id="date-next-btn" class="btn next-step" disabled>Next: Choose Package</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 2: Package Selection -->
-                        <div class="form-step" id="package-step">
-                            <h3>Select Your Package</h3>
-                            
-                            <div class="row mt-4">
-                                <!-- Package options - simplified from the packages section above -->
-                                <div class="col-md-4 mb-3">
-                                    <div class="card package-card" data-package="basic">
-                                        <h4>Basic Package</h4>
-                                        <div class="package-price mb-2">R3,500</div>
-                                        <p>50 drinks, 3 hours, 1 barista</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4 mb-3">
-                                    <div class="card package-card" data-package="premium">
-                                        <span class="badge bg-primary position-absolute top-0 end-0 m-2">Popular</span>
-                                        <h4>Premium Package</h4>
-                                        <div class="package-price mb-2">R6,500</div>
-                                        <p>100 drinks, 5 hours, 2 baristas</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4 mb-3">
-                                    <div class="card package-card" data-package="wedding">
-                                        <h4>Wedding Package</h4>
-                                        <div class="package-price mb-2">R8,500</div>
-                                        <p>Unlimited drinks, 6 hours, custom drink</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <input type="hidden" id="selected-package" name="package" required>
-                            
-                            <div class="form-actions mt-4">
-                                <button type="button" class="btn btn-outline prev-step">Previous</button>
-                                <button type="button" class="btn next-step" disabled>Next: Event Details</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 3: Event Details -->
-                        <div class="form-step" id="details-step">
-                            <h3>Event Details</h3>
-                            
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="event-type">Event Type</label>
-                                        <select id="event-type" name="eventType" class="form-control" required>
-                                            <option value="">Select event type</option>
-                                            <option value="wedding">Wedding</option>
-                                            <option value="corporate">Corporate Function</option>
-                                            <option value="market">Market/Fair</option>
-                                            <option value="private">Private Party</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="guest-count">Expected Guests</label>
-                                        <input type="number" id="guest-count" name="guestCount" class="form-control" min="10" max="500" required>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="event-location">Event Location</label>
-                                <input type="text" id="event-location" name="eventLocation" class="form-control" required placeholder="Full address of the event">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="special-requests">Special Requests</label>
-                                <textarea id="special-requests" name="specialRequests" class="form-control" rows="3" placeholder="Any specific requirements or requests"></textarea>
-                            </div>
-                            
-                            <div class="form-actions mt-4">
-                                <button type="button" class="btn btn-outline prev-step">Previous</button>
-                                <button type="button" class="btn next-step">Next: Contact Information</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 4: Contact Information & Confirmation -->
-                        <div class="form-step" id="contact-step">
-                            <h3>Contact Information</h3>
-                            
-                            <div class="row mt-4">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">Full Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="company">Company/Organization (if applicable)</label>
-                                <input type="text" id="company" name="company" class="form-control">
-                            </div>
-                            
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input type="checkbox" id="terms-check" name="termsAccepted" class="form-check-input" required>
-                                    <label for="terms-check" class="form-check-label">
-                                        I agree to the <a href="terms.html" target="_blank">Terms & Conditions</a>
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <!-- Anti-spam honeypot field (hidden from users) -->
-                            <div class="form-group" style="display:none">
-                                <label for="honeypot">Leave this empty</label>
-                                <input type="text" id="honeypot" name="honeypot" autocomplete="off">
-                            </div>
-                            
-                            <div class="form-actions mt-4">
-                                <button type="button" class="btn btn-outline prev-step">Previous</button>
-                                <button type="submit" class="btn">Submit Booking Request</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- WhatsApp Quick Book Button -->
-    <a href="https://wa.me/27123456789?text=Hi%20JO4%20Brew,%20I'm%20interested%20in%20booking%20the%20coffee%20trailer%20for%20my%20event." class="whatsapp-button" aria-label="Book via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- Footer -->
-    <footer>
+    </nav>
+
+    <!-- Brew Hero Section -->
+    <section id="brew-hero" class="hero brew-hero">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JO4 Brew</h3>
-                    <p>Mobile coffee trailer serving specialty coffee at events throughout South Africa.</p>
-                    <p class="mt-3">
-                        <strong>Last Updated:</strong> <span class="last-updated">2025-08-26 21:45:21</span><br>
-                        <strong>© JO4 Brew</strong> - All rights reserved
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Welcome to</span>
+                        <span class="name" style="text-shadow: #007BFF 1px 1px 1px;">JO4 Brew</span>
+                        <span class="role">Premium Mobile Coffee Experience</span>
+                    </h1>
+                    <p class="hero-description">
+                        Experience the perfect cup of coffee at your event, market, or special occasion. We combine ethically sourced beans, expert brewing techniques, and a passion for quality to deliver exceptional coffee experiences.
                     </p>
+                    <div class="hero-cta">
+                        <a href="#menu" class="btn coffee-btn" title="View Coffee Menu">
+                            <span>Explore Our Menu</span>
+                            <i class="fas fa-coffee"></i>
+                        </a>
+                        <a href="contact.html" class="btn coffee-btn-outline" title="Book JO4 Brew">
+                            <span>Book For Your Event</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="hero-img-container morph-animation">
+                        <img src="assets/images/coffee-hero.jpg" alt="JO4 Brew - Mobile Coffee Experience" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Our Coffee Section -->
+    <section id="about-coffee" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">About JO4 Brew</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <div class="image-border morph-animation">
+                        <img src="assets/images/coffee-about.jpg" alt="JO4 Brew Coffee Experience" class="profile-image">
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#booking">Book Now</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
+                <div class="about-text">
+                    <p class="about-intro animate-on-scroll">
+                        JO4 Brew is a <span class="highlight">premium mobile coffee service</span> based in Nigel, South Africa, bringing exceptional coffee experiences to events, markets, and special occasions.
+                    </p>
+                    <p class="about-description animate-on-scroll">
+                        Founded on a passion for quality coffee and exceptional service, we've transformed the mobile coffee experience. Our trailer is equipped with professional equipment to deliver café-quality beverages wherever we go.
+                    </p>
+                    <p class="about-description animate-on-scroll">
+                        We source our beans ethically from top producers and employ expert brewing techniques to ensure every cup meets our high standards. Whether you're hosting a corporate event, wedding, market day, or festival, JO4 Brew will elevate your gathering with our premium coffee service.
+                    </p>
+                    
+                    <div class="about-details animate-on-scroll">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Premium Beans</h3>
+                                <p>Ethically sourced, expertly roasted</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Mobile Service</h3>
+                                <p>We come to your location</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Event Friendly</h3>
+                                <p>Perfect for gatherings of all sizes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Quality Guarantee</h3>
+                                <p>Exceptional taste and service</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn coffee-btn">Book JO4 Brew</a>
+                        <a href="#menu" class="btn coffee-btn-outline">View Our Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coffee Menu Section -->
+    <section id="menu" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our Coffee Menu</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Discover our selection of premium coffee beverages and specialty drinks
+                </p>
+            </div>
+            
+            <div class="coffee-menu">
+                <!-- Espresso -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R25</span>
+                    <h3 class="coffee-name">Espresso</h3>
+                    <p class="coffee-description">
+                        A concentrated shot of coffee served in a small cup. Rich, intense flavor with a beautiful crema on top.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Single Shot</span>
+                        <span class="coffee-feature">Double Shot (+R10)</span>
+                        <span class="coffee-feature">Strong</span>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:brew@jo4.co.za">brew@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
-                    <div class="social-icons mt-3">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <!-- Cappuccino -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R35</span>
+                    <h3 class="coffee-name">Cappuccino</h3>
+                    <p class="coffee-description">
+                        Equal parts espresso, steamed milk, and milk foam. A balanced, creamy coffee with a light, frothy top.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Classic</span>
+                        <span class="coffee-feature">Vanilla (+R5)</span>
+                        <span class="coffee-feature">Hazelnut (+R5)</span>
+                    </div>
+                </div>
+                
+                <!-- Latte -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R38</span>
+                    <h3 class="coffee-name">Café Latte</h3>
+                    <p class="coffee-description">
+                        Espresso with steamed milk and a small layer of milk foam. Smooth, creamy, and less intense than a cappuccino.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Classic</span>
+                        <span class="coffee-feature">Caramel (+R5)</span>
+                        <span class="coffee-feature">Vanilla (+R5)</span>
+                    </div>
+                </div>
+                
+                <!-- Americano -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R30</span>
+                    <h3 class="coffee-name">Americano</h3>
+                    <p class="coffee-description">
+                        Espresso diluted with hot water. Similar strength to drip coffee but with the rich flavor profile of espresso.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Hot</span>
+                        <span class="coffee-feature">Iced (+R5)</span>
+                        <span class="coffee-feature">Extra Shot (+R10)</span>
+                    </div>
+                </div>
+                
+                <!-- Mocha -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R42</span>
+                    <h3 class="coffee-name">Mocha</h3>
+                    <p class="coffee-description">
+                        Espresso with chocolate syrup and steamed milk. The perfect blend of coffee and chocolate flavors.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Whipped Cream</span>
+                        <span class="coffee-feature">Dark Chocolate</span>
+                        <span class="coffee-feature">White Chocolate</span>
+                    </div>
+                </div>
+                
+                <!-- Cold Brew -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R40</span>
+                    <h3 class="coffee-name">Cold Brew</h3>
+                    <p class="coffee-description">
+                        Coffee steeped in cold water for 12+ hours. Smooth, less acidic, with a naturally sweet taste.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Plain</span>
+                        <span class="coffee-feature">Vanilla (+R5)</span>
+                        <span class="coffee-feature">Caramel (+R5)</span>
                     </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="section-header" style="margin-top: 4rem;">
+                <h3 class="section-title animate-on-scroll">Non-Coffee Options</h3>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="coffee-menu">
+                <!-- Hot Chocolate -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R35</span>
+                    <h3 class="coffee-name">Hot Chocolate</h3>
+                    <p class="coffee-description">
+                        Rich, creamy hot chocolate made with premium cocoa and steamed milk. Topped with whipped cream.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Classic</span>
+                        <span class="coffee-feature">Mint (+R5)</span>
+                        <span class="coffee-feature">Hazelnut (+R5)</span>
+                    </div>
+                </div>
+                
+                <!-- Chai Latte -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R38</span>
+                    <h3 class="coffee-name">Chai Latte</h3>
+                    <p class="coffee-description">
+                        Spiced tea concentrate mixed with steamed milk. A perfect balance of sweet and spicy flavors.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Traditional</span>
+                        <span class="coffee-feature">Vanilla (+R5)</span>
+                        <span class="coffee-feature">Dirty Chai (+R10)</span>
+                    </div>
+                </div>
+                
+                <!-- Tea -->
+                <div class="coffee-item animate-on-scroll">
+                    <span class="coffee-price">R25</span>
+                    <h3 class="coffee-name">Specialty Tea</h3>
+                    <p class="coffee-description">
+                        Premium loose-leaf teas, perfectly steeped. Available in a variety of flavors to suit every taste.
+                    </p>
+                    <div class="coffee-features">
+                        <span class="coffee-feature">Earl Grey</span>
+                        <span class="coffee-feature">Rooibos</span>
+                        <span class="coffee-feature">Green Tea</span>
+                        <span class="coffee-feature">Herbal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Why Choose JO4 Brew</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Discover the advantages of having our mobile coffee service at your next event
+                </p>
+            </div>
+            
+            <div class="coffee-benefits">
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="benefit-title">Premium Quality</h3>
+                    <p>We use only the finest beans and ingredients to ensure every cup meets our high standards for taste and quality.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="benefit-title">Fully Mobile</h3>
+                    <p>Our self-contained mobile coffee trailer can set up virtually anywhere, bringing the café experience to your location.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="benefit-title">Crowd Pleaser</h3>
+                    <p>Coffee is universally loved and adds a premium touch to any event, keeping guests happy and energized.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="benefit-title">Professional Service</h3>
+                    <p>Our friendly, trained baristas provide efficient and courteous service, enhancing your guests' experience.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="benefit-title">Ethically Sourced</h3>
+                    <p>We're committed to using ethically sourced beans and eco-friendly packaging wherever possible.</p>
+                </div>
+                
+                <div class="benefit-item animate-on-scroll">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3 class="benefit-title">Customizable Options</h3>
+                    <p>We offer flexible packages to suit events of all sizes and can customize our menu to meet your specific needs.</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-wrapper animate-on-scroll">
+                <p class="testimonial-quote">
+                    "JO4 Brew was the highlight of our corporate event! The coffee was exceptional, the service was professional, and they accommodated our large group with ease. I'll definitely be booking them again for future events."
+                </p>
+                <p class="testimonial-author">- Sarah Johnson, Event Coordinator</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Coffee Gallery</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    See our coffee service in action at various events
+                </p>
+            </div>
+            
+            <div class="coffee-gallery">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-1.jpg" alt="JO4 Brew Mobile Coffee Trailer">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Our Mobile Coffee Trailer</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-2.jpg" alt="Latte Art by JO4 Brew Baristas">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Our Signature Latte Art</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-3.jpg" alt="JO4 Brew at Corporate Event">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Corporate Event Service</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-4.jpg" alt="Coffee Beans Used by JO4 Brew">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Our Premium Coffee Beans</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-5.jpg" alt="JO4 Brew Cappuccino">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Perfect Cappuccino</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/coffee-gallery-6.jpg" alt="JO4 Brew at Wedding">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Wedding Coffee Service</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Book JO4 Brew</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="section-description animate-on-scroll">
+                    Bring premium coffee to your next event, market, or special occasion
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Get In Touch</h3>
+                    <p class="contact-description">
+                        Ready to book JO4 Brew for your event? Contact us to check availability, discuss your needs, and get a custom quote.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Service Area</h4>
+                                <p>Nigel and surrounding areas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Advance Booking</h4>
+                                <p>Recommended 2-4 weeks in advance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn coffee-btn">Contact Us Now</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" value="JO4 Brew Booking Inquiry" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Please include event details, date, location, and estimated number of guests" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn coffee-btn form-submit">
+                            <span class="submit-text">Send Booking Inquiry</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>JO4 Brew</h3>
+                    <p>Premium Mobile Coffee Experience</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4 Brew. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 14:54:40 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="assets/js/form-handler.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

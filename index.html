@@ -1,261 +1,451 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JO4 — Cybersecurity, Mobile Coffee & Real Estate (South Africa)</title>
-    <meta name="description" content="Jonathan Roets (JO4) — Certified Property Practitioner, Cybersecurity Consultant, and owner of JO4 Brew.">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="JO4 — Cybersecurity, Mobile Coffee & Real Estate">
-    <meta property="og:description" content="Jonathan Roets (JO4) — Certified Property Practitioner, Cybersecurity Consultant, and owner of JO4 Brew.">
-    <meta property="og:image" content="https://jo4.co.za/assets/images/jo4-social-preview.jpg">
-    <meta property="og:url" content="https://jo4.co.za">
-    <meta name="twitter:card" content="summary_large_image">
+    <!-- Primary SEO Meta Tags -->
+    <title>JO4 | Security, Brew & Real Estate | Jonathan Roets</title>
+    <meta name="description" content="JO4 ventures by Jonathan Roets spanning security, coffee business, and real estate services. Professional solutions from South Africa.">
+    <meta name="keywords" content="JO4, Jonathan Roets, security services, mobile coffee, real estate, South Africa, Python developer, cybersecurity">
+    <meta name="author" content="Jonathan Roets">
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/light-theme.css">
-    <link rel="stylesheet" href="assets/css/dark-theme.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
     
-    <!-- Fonts -->
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Skip link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">JO4</a>
-                
-                <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="nav-links">
-                    <span class="sr-only">Menu</span>
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="secure.html">JO4 SECURE</a></li>
-                    <li><a href="brew.html">JO4 Brew</a></li>
-                    <li><a href="realestate.html">Real Estate</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><button class="theme-toggle" aria-label="Toggle dark theme"></button></li>
-                </ul>
-            </nav>
+     <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">JO4</div>
+        <ul class="nav-links">
+            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="about.html" title="About JO4">About</a></li>
+            <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
+            <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
+            <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
+            <li><a href="contact.html" title="Contact JO4">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </header>
-    
-    <!-- Main Content -->
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" style="background-image: url('assets/images/hero/hero-bg.jpg');">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>JO4 — Tech, Coffee & Property.</h1>
-                    <p>Cybersecurity consulting, event coffee services, and professional real-estate services.</p>
+    </nav>
+
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Welcome to</span>
+                        <span class="name">JO4</span>
+                        <span class="role">Security • Brew • Real Estate</span>
+                    </h1>
+                    <p class="hero-description">
+                        Experience innovative solutions across multiple domains. From robust cybersecurity services and premium mobile coffee experiences to expert real estate guidance - all powered by Python development expertise.
+                    </p>
                     <div class="hero-cta">
-                        <a href="secure.html" class="btn">Explore JO4 SECURE</a>
-                        <a href="brew.html" class="btn btn-outline">Book JO4 Brew</a>
-                        <a href="realestate.html" class="btn btn-outline">View Properties</a>
+                        <a href="#ventures" class="btn btn-primary" title="Explore JO4 Ventures">
+                            <span>Explore Our Ventures</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary" title="Contact JO4">
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email Contact"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="shape shape-1" data-speed="0.2"></div>
+                    <div class="shape shape-2" data-speed="0.1"></div>
+                    <div class="shape shape-3" data-speed="0.3"></div>
+                    <div class="hero-img-container morph-animation">
+                        <img src="assets/images/profile-photo.jpg" alt="Jonathan Roets - Founder of JO4" class="profile-image">
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Micro-Brand Cards Section -->
-        <section class="section brands-section">
-            <div class="container">
-                <h2 class="text-center mb-4">Our Services</h2>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section id="ventures" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our Ventures</h2>
+                <div class="section-line animate-on-scroll"></div>
+                <p class="animate-on-scroll">Discover JO4's diverse portfolio of professional services and business ventures</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- JO4 Security Card -->
+                <div class="project-card animate-on-scroll" data-category="security">
+                    <div class="project-img">
+                        <img src="assets/images/security-venture.jpg" alt="JO4 Security - Cybersecurity services and solutions">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="secure.html" class="project-link" aria-label="View JO4 Security Services"><i class="fas fa-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Cybersecurity</span>
+                            <span class="project-tag">Penetration Testing</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <h3 class="project-title">JO4 Security</h3>
+                        <p class="project-description">Professional cybersecurity services including penetration testing, vulnerability assessments, and security consulting to protect your digital assets.</p>
+                        <a href="secure.html" class="btn btn-primary">Explore Security Services</a>
+                    </div>
+                </div>
                 
-                <div class="brands-grid">
-                    <!-- JO4 SECURE Card -->
-                    <div class="card reveal">
-                        <img src="assets/images/secure/secure-thumbnail.jpg" alt="JO4 SECURE" class="card-img">
-                        <h3>JO4 SECURE</h3>
-                        <p>Practical cybersecurity, ethical hacking, and application security services to protect your digital assets.</p>
-                        <a href="secure.html" class="btn">Learn More</a>
+                <!-- JO4 Brew Card -->
+                <div class="project-card animate-on-scroll" data-category="brew">
+                    <div class="project-img">
+                        <img src="assets/images/brew-venture.jpg" alt="JO4 Brew - Mobile coffee shop services">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="brew.html" class="project-link" aria-label="View JO4 Brew Services"><i class="fas fa-eye"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- JO4 Brew Card -->
-                    <div class="card reveal">
-                        <img src="assets/images/brew/brew-thumbnail.jpg" alt="JO4 Brew" class="card-img">
-                        <h3>JO4 Brew</h3>
-                        <p>Mobile coffee trailer for night markets, weddings, and events throughout South Africa.</p>
-                        <a href="brew.html" class="btn">Book Now</a>
-                    </div>
-                    
-                    <!-- JO4 Real Estate Card -->
-                    <div class="card reveal">
-                        <img src="assets/images/realestate/realestate-thumbnail.jpg" alt="JO4 Real Estate" class="card-img">
-                        <h3>JO4 Real Estate</h3>
-                        <p>Professional property services in partnership with Larney Properties.</p>
-                        <a href="realestate.html" class="btn">View Listings</a>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Coffee</span>
+                            <span class="project-tag">Mobile Shop</span>
+                            <span class="project-tag">Events</span>
+                        </div>
+                        <h3 class="project-title">JO4 Brew</h3>
+                        <p class="project-description">Premium mobile coffee shop offering exceptional brewing techniques, ethically sourced beans, and a unique coffee experience for events and locations.</p>
+                        <a href="brew.html" class="btn btn-primary">Discover Our Coffee</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Personal Snapshot Section -->
-        <section class="section about-snapshot">
-            <div class="container">
-                <div class="snapshot-content">
-                    <div class="snapshot-image reveal">
-                        <img src="assets/images/jonathan-profile.jpg" alt="Jonathan Roets">
-                    </div>
-                    <div class="snapshot-text reveal">
-                        <h2>Meet Jonathan</h2>
-                        <p>I'm Jonathan (JO4) — a Python developer, certified property practitioner, and owner of a mobile coffee trailer. I build secure applications, serve events, and help clients buy and sell homes.</p>
-                        <a href="about.html" class="btn">More About Me</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Featured Carousel Section -->
-        <section class="section featured-carousel">
-            <div class="container">
-                <h2 class="text-center mb-4">Featured Projects & Listings</h2>
                 
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <!-- Security Project -->
-                        <div class="carousel-item">
-                            <div class="card">
-                                <div class="card-badge">JO4 SECURE</div>
-                                <img src="assets/images/secure/project1.jpg" alt="Security Project">
-                                <h3>Web Application Security Audit</h3>
-                                <p>Comprehensive security audit for an e-commerce platform.</p>
-                                <a href="secure.html#project1" class="btn">View Project</a>
+                <!-- Real Estate Card -->
+                <div class="project-card animate-on-scroll" data-category="realestate">
+                    <div class="project-img">
+                        <img src="assets/images/realestate-venture.jpg" alt="JO4 Real Estate - Property services and investments">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="realestate.html" class="project-link" aria-label="View Real Estate Services"><i class="fas fa-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="project-tag">Property</span>
+                            <span class="project-tag">Investments</span>
+                            <span class="project-tag">Market Analysis</span>
+                        </div>
+                        <h3 class="project-title">JO4 Real Estate</h3>
+                        <p class="project-description">Professional real estate services helping clients find their perfect properties through market expertise, personalized guidance, and investment insights.</p>
+                        <a href="realestate.html" class="btn btn-primary">View Properties</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Preview -->
+    <section id="about-preview" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">About JO4</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image animate-on-scroll">
+                    <div class="image-border morph-animation">
+                        <img src="assets/images/profile-photo.jpg" alt="Jonathan Roets - Founder of JO4" class="profile-image">
+                    </div>
+                    <div class="experience-badge pulse-animation">
+                        <span class="number">1+</span>
+                        <span class="text">Years Experience</span>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <p class="about-intro animate-on-scroll">
+                        JO4 was founded by <span class="highlight">Jonathan Roets</span>, a versatile professional with expertise spanning cybersecurity, entrepreneurship, and real estate.
+                    </p>
+                    <p class="about-description animate-on-scroll">
+                        With a background in cybersecurity and Python development, Jonathan created JO4 as an umbrella brand for his diverse professional ventures. The brand represents a commitment to excellence, attention to detail, and customer-focused solutions across multiple domains.
+                    </p>
+                    
+                    <div class="about-details animate-on-scroll">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Security</h3>
+                                <p>Comprehensive cybersecurity services</p>
                             </div>
                         </div>
                         
-                        <!-- Brew Event -->
-                        <div class="carousel-item">
-                            <div class="card">
-                                <div class="card-badge">JO4 Brew</div>
-                                <img src="assets/images/brew/event1.jpg" alt="Coffee Event">
-                                <h3>Cape Town Food Market</h3>
-                                <p>Serving specialty coffee at the monthly food market.</p>
-                                <a href="brew.html#events" class="btn">See Events</a>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Brew</h3>
+                                <p>Premium mobile coffee experiences</p>
                             </div>
                         </div>
                         
-                        <!-- Property Listing -->
-                        <div class="carousel-item">
-                            <div class="card">
-                                <div class="card-badge">JO4 Real Estate</div>
-                                <img src="assets/images/realestate/property1.jpg" alt="Featured Property">
-                                <h3>Luxury Apartment in Cape Town</h3>
-                                <p>2 Bedroom apartment with stunning mountain views.</p>
-                                <a href="realestate.html#property1" class="btn">View Listing</a>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Real Estate</h3>
+                                <p>Professional property services</p>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <h3>Location</h3>
+                                <p>Nigel, South Africa</p>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Carousel Controls -->
-                    <button class="carousel-prev" aria-label="Previous item">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-next" aria-label="Next item">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <div class="about-cta animate-on-scroll">
+                        <a href="about.html" class="btn btn-primary">Learn More</a>
+                        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Blog Callout Section -->
-        <section class="section blog-callout">
-            <div class="container">
-                <div class="callout-content reveal">
-                    <h2>Latest Insights</h2>
-                    <p>Stay updated with our latest articles on cybersecurity, coffee culture, and real estate trends.</p>
-                    <a href="#" class="btn">Read Our Blog</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Client Testimonials</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline active">
+                    <!-- Testimonial 1 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Security</div>
+                        <div class="timeline-content">
+                            <h3>"Expert Security Analysis"</h3>
+                            <h4>Michael Thompson, CTO</h4>
+                            <p class="timeline-description">
+                                JO4 Security provided exceptional cybersecurity assessment services for our company. Their thorough approach identified vulnerabilities we hadn't considered and their recommendations significantly improved our security posture.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Penetration Testing</span>
+                                <span class="timeline-tag">Security Assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Brew</div>
+                        <div class="timeline-content">
+                            <h3>"Outstanding Coffee Service"</h3>
+                            <h4>Sarah Johnson, Event Coordinator</h4>
+                            <p class="timeline-description">
+                                JO4 Brew's service at our corporate event was outstanding. The quality of coffee and professional presentation impressed everyone. Their attention to detail and customer service made our event memorable.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Premium Coffee</span>
+                                <span class="timeline-tag">Event Catering</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="timeline-item animate-on-scroll">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Real Estate</div>
+                        <div class="timeline-content">
+                            <h3>"Personalized Property Search"</h3>
+                            <h4>David & Emily Wilson</h4>
+                            <p class="timeline-description">
+                                Working with JO4 Real Estate was a pleasure from start to finish. Their market knowledge and personalized approach helped us find exactly what we were looking for. Highly recommended for anyone searching for property.
+                            </p>
+                            <div class="timeline-tags">
+                                <span class="timeline-tag">Property Purchase</span>
+                                <span class="timeline-tag">Market Expertise</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Ready to Work With JO4?</h2>
+                <div class="section-line animate-on-scroll"></div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <h3 class="contact-subtitle">Let's Connect</h3>
+                    <p class="contact-description">
+                        Whether you need cybersecurity expertise, premium coffee for your event, or assistance with property transactions, we're here to help.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:jroetscyber@gmail.com">jroetscyber@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+27826102440">+27 82 610 2440</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nigel, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta animate-on-scroll">
+                        <a href="contact.html" class="btn btn-primary">Contact Us Now</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper animate-on-scroll">
+                    <form id="contactForm" class="contact-form" onsubmit="return submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary form-submit">
+                            <span class="submit-text">Send Message</span>
+                            <span class="submit-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-logo">
                     <h3>JO4</h3>
-                    <p>Cybersecurity consulting, event coffee services, and professional real-estate services.</p>
+                    <p>Security • Brew • Real Estate</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="secure.html">JO4 SECURE</a></li>
-                        <li><a href="brew.html">JO4 Brew</a></li>
-                        <li><a href="realestate.html">Real Estate</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="index.html" title="Home">Home</a>
+                    <a href="about.html" title="About JO4">About</a>
+                    <a href="secure.html" title="JO4 Security">Security</a>
+                    <a href="brew.html" title="JO4 Brew">Brew</a>
+                    <a href="realestate.html" title="Real Estate">Real Estate</a>
+                    <a href="contact.html" title="Contact JO4">Contact</a>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:contact@jo4.co.za">contact@jo4.co.za</a></p>
-                    <p>Phone: <a href="tel:+27123456789">+27 12 345 6789</a></p>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/JRoetscyber" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
+                <div class="footer-social">
+                    <a href="https://github.com/JRoetscyber" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jonathan-roets-b93420356/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jonathan_roets.189lb/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:jroetscyber@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/jonathan.roets.9" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; <span class="copyright-year">2025</span> JO4. All Rights Reserved.</p>
-                <p>Last updated: <span class="last-updated">2025-08-26 21:41:24</span> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-                <p>Generated for: <span class="username">JRoetscyber</span></p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> JO4. All Rights Reserved.</p>
+                <p>Last Updated: 2025-09-01 13:30:14 (UTC)</p>
+                <p>Current User: JRoetscyber</p>
             </div>
         </div>
     </footer>
-    
-    <!-- Back to top button -->
-    <button class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
+
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme-switcher.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function() {
-            // Initialize EmailJS with your user ID
-            emailjs.init("user_xxxxxxxxxxxx");
-        })();
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
