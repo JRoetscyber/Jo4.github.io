@@ -206,17 +206,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.getAttribute('href') === '#' || this.getAttribute('role') === 'tab') {
                 return;
             }
-            
+
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 // Calculate header height for offset
                 const headerHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -224,4 +224,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Animated counter for stats
+    const statNumbers = document.querySelectorAll('.stat-number');
+
+    if (statNumbers.length > 0 && 'IntersectionObserver' in window) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateCounter(entry.target, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        statNumbers.forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    }
+
+    // Counter animation function
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 50; // Adjust speed here
+        const duration = 2000; // 2 seconds
+        const stepTime = duration / 50;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current).toLocaleString();
+            }
+        }, stepTime);
+    }
 });

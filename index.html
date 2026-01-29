@@ -35,6 +35,7 @@
             <li><a href="about.html" title="About JO4">About</a></li>
             <li><a href="secure.html" title="JO4 Security Services">Security</a></li>
             <li><a href="projects.html" title="Cybersecurity Projects">Projects</a></li>
+            <li><a herf="Blog.html" title="JO4 Blog">Blog</a></li>
             <li><a href="brew.html" title="JO4 Brew Coffee">Brew</a></li>
             <li><a href="realestate.html" title="Real Estate Services">Real Estate</a></li>
             <li><a href="contact.html" title="Contact JO4">Contact</a></li>
@@ -102,79 +103,187 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid animate-on-scroll">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Security Assessments</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Cups Served</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-label">Properties Managed</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Ventures Section -->
     <section id="ventures" class="projects">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title animate-on-scroll">Our Ventures</h2>
                 <div class="section-line animate-on-scroll"></div>
-                <p class="animate-on-scroll">Discover JO4's diverse portfolio of professional services and business ventures</p>
+                <p class="section-description animate-on-scroll">Discover JO4's diverse portfolio of professional services and business ventures</p>
             </div>
-            
-            <div class="projects-grid">
+
+            <div class="ventures-grid">
                 <!-- JO4 Security Card -->
-                <div class="project-card animate-on-scroll" data-category="security">
-                    <div class="project-img">
+                <div class="venture-card animate-on-scroll" data-category="security">
+                    <div class="venture-img">
                         <img src="assets/images/security-venture.jpg" alt="JO4 Security - Cybersecurity services and solutions">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="secure.html" class="project-link" aria-label="View JO4 Security Services"><i class="fas fa-eye"></i></a>
+                        <div class="venture-badge">Security</div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="venture-title">JO4 Security</h3>
+                        <p class="venture-description">Professional cybersecurity services including penetration testing, vulnerability assessments, and security consulting to protect your digital assets.</p>
+
+                        <div class="venture-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Penetration Testing</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Vulnerability Assessment</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Security Consulting</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Python Automation</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="project-tag">Cybersecurity</span>
-                            <span class="project-tag">Penetration Testing</span>
-                            <span class="project-tag">Python</span>
+
+                        <div class="venture-tags">
+                            <span class="venture-tag">Cybersecurity</span>
+                            <span class="venture-tag">Penetration Testing</span>
+                            <span class="venture-tag">Python</span>
                         </div>
-                        <h3 class="project-title">JO4 Security</h3>
-                        <p class="project-description">Professional cybersecurity services including penetration testing, vulnerability assessments, and security consulting to protect your digital assets.</p>
-                        <a href="secure.html" class="btn btn-primary">Explore Security Services</a>
+
+                        <a href="secure.html" class="btn venture-btn">
+                            <span>Explore Security Services</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- JO4 Brew Card -->
-                <div class="project-card animate-on-scroll" data-category="brew">
-                    <div class="project-img">
+                <div class="venture-card animate-on-scroll" data-category="brew">
+                    <div class="venture-img">
                         <img src="assets/images/brew-venture.jpg" alt="JO4 Brew - Mobile coffee shop services">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="brew.html" class="project-link" aria-label="View JO4 Brew Services"><i class="fas fa-eye"></i></a>
+                        <div class="venture-badge brew-badge">Brew</div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-icon brew-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3 class="venture-title">JO4 Brew</h3>
+                        <p class="venture-description">Premium mobile coffee shop offering exceptional brewing techniques, ethically sourced beans, and a unique coffee experience for events and locations.</p>
+
+                        <div class="venture-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Premium Coffee Beans</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Expert Brewing</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Event Catering</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mobile Service</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="project-tag">Coffee</span>
-                            <span class="project-tag">Mobile Shop</span>
-                            <span class="project-tag">Events</span>
+
+                        <div class="venture-tags">
+                            <span class="venture-tag">Coffee</span>
+                            <span class="venture-tag">Mobile Shop</span>
+                            <span class="venture-tag">Events</span>
                         </div>
-                        <h3 class="project-title">JO4 Brew</h3>
-                        <p class="project-description">Premium mobile coffee shop offering exceptional brewing techniques, ethically sourced beans, and a unique coffee experience for events and locations.</p>
-                        <a href="brew.html" class="btn btn-primary">Discover Our Coffee</a>
+
+                        <a href="brew.html" class="btn venture-btn brew-btn">
+                            <span>Discover Our Coffee</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- Real Estate Card -->
-                <div class="project-card animate-on-scroll" data-category="realestate">
-                    <div class="project-img">
+                <div class="venture-card animate-on-scroll" data-category="realestate">
+                    <div class="venture-img">
                         <img src="assets/images/realestate-venture.jpg" alt="JO4 Real Estate - Property services and investments">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="realestate.html" class="project-link" aria-label="View Real Estate Services"><i class="fas fa-eye"></i></a>
+                        <div class="venture-badge estate-badge">Real Estate</div>
+                    </div>
+                    <div class="venture-content">
+                        <div class="venture-icon estate-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="venture-title">JO4 Real Estate</h3>
+                        <p class="venture-description">Professional real estate services helping clients find their perfect properties through market expertise, personalized guidance, and investment insights.</p>
+
+                        <div class="venture-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Property Sales</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Market Analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Investment Consulting</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Property Management</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-tags">
-                            <span class="project-tag">Property</span>
-                            <span class="project-tag">Investments</span>
-                            <span class="project-tag">Market Analysis</span>
+
+                        <div class="venture-tags">
+                            <span class="venture-tag">Property</span>
+                            <span class="venture-tag">Investments</span>
+                            <span class="venture-tag">Market Analysis</span>
                         </div>
-                        <h3 class="project-title">JO4 Real Estate</h3>
-                        <p class="project-description">Professional real estate services helping clients find their perfect properties through market expertise, personalized guidance, and investment insights.</p>
-                        <a href="realestate.html" class="btn btn-primary">View Properties</a>
+
+                        <a href="realestate.html" class="btn venture-btn estate-btn">
+                            <span>View Properties</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
